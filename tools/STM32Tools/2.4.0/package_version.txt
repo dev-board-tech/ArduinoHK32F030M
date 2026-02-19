@@ -1,0 +1,4 @@
+commit 8017b405abf5534cb34afdf78184be14bf371607
+Author: Frederic Pillon <frederic.pillon@st.com>
+
+    chore: create hid-flash wrapper

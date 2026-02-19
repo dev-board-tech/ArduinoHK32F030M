@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+
+tools/xpack-arm-none-eabi-gcc/
+tools/xpack-openocd

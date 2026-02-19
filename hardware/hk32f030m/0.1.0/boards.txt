@@ -1,0 +1,858 @@
+# See: https://arduino.github.io/arduino-cli/latest/platform-specification/
+
+menu.pnum=Board part number
+
+menu.extclk=EXT CLK Freq
+menu.xserial=UART support
+menu.xi2c=I2C support
+menu.xspi=SPI support
+menu.rtos=RTOS support
+menu.usb=USB support (if available)
+menu.xusb=USB speed (if available)
+
+menu.opt=Optimize
+menu.dbg=Debug symbols and core logs
+menu.rtlib=C Runtime Library
+menu.upload_method=Upload method
+
+###############################
+# HK32F030MJ4M6
+J4M6.name=HK32F030MJ4M6
+
+J4M6.build.core=arduino
+J4M6.build.board=J4M6
+J4M6.build.mcu=cortex-m0
+J4M6.build.series=HK32F030M
+J4M6.build.st_extra_flags=-D{build.product_line} {build.xSerial} {build.xI2C} {build.xSPI} {build.RTOS} -DEXTCLK_VALUE={build.extclk}
+J4M6.build.flash_offset=0x0
+J4M6.upload.maximum_size=0
+J4M6.upload.maximum_data_size=0
+J4M6.openocd.target=stm32f0x
+J4M6.vid.0=0x0483
+J4M6.pid.0=0x5740
+
+# DEMO_F030M_8M board
+J4M6.menu.pnum.HK32F030MJ4M6=HK32F030MJ4M6 (HSI 8Mhz)
+J4M6.menu.pnum.HK32F030MJ4M6.upload.maximum_size=16384
+J4M6.menu.pnum.HK32F030MJ4M6.upload.maximum_data_size=2048
+J4M6.menu.pnum.HK32F030MJ4M6.build.board=HK32F030MJ4M6
+J4M6.menu.pnum.HK32F030MJ4M6.build.clksrc=SYSCLK_SRC_HSI8M
+J4M6.menu.pnum.HK32F030MJ4M6.build.product_line=hk32f030mf4p6
+J4M6.menu.pnum.HK32F030MJ4M6.build.variant=HK32F030M/J4M6
+J4M6.menu.pnum.HK32F030MJ4M6.build.variant_h=variant_HK32F030MJ4M6.h
+J4M6.menu.pnum.HK32F030MJ4M6.debug.svd_file={runtime.tools.HK32F030M_SVD.path}/svd/HK32F030M.svd
+
+# DEMO_F030M_16M board
+J4M6.menu.pnum.HK32F030MJ4M6_16M=HK32F030MJ4M6 (HSI 16Mhz)
+J4M6.menu.pnum.HK32F030MJ4M6_16M.upload.maximum_size=16384
+J4M6.menu.pnum.HK32F030MJ4M6_16M.upload.maximum_data_size=2048
+J4M6.menu.pnum.HK32F030MJ4M6_16M.build.board=HK32F030MJ4M6
+J4M6.menu.pnum.HK32F030MJ4M6_16M.build.clksrc=SYSCLK_SRC_HSI16M
+J4M6.menu.pnum.HK32F030MJ4M6_16M.build.product_line=hk32f030mf4p6
+J4M6.menu.pnum.HK32F030MJ4M6_16M.build.variant=HK32F030M/J4M6
+J4M6.menu.pnum.HK32F030MJ4M6_16M.build.variant_h=variant_HK32F030MJ4M6.h
+J4M6.menu.pnum.HK32F030MJ4M6_16M.debug.svd_file={runtime.tools.HK32F030M_SVD.path}/svd/HK32F030M.svd
+
+# DEMO_F030M_32M board
+J4M6.menu.pnum.HK32F030MJ4M6_32M=HK32F030MJ4M6 (HSI 32Mhz)
+J4M6.menu.pnum.HK32F030MJ4M6_32M.upload.maximum_size=16384
+J4M6.menu.pnum.HK32F030MJ4M6_32M.upload.maximum_data_size=2048
+J4M6.menu.pnum.HK32F030MJ4M6_32M.build.board=HK32F030MJ4M6
+J4M6.menu.pnum.HK32F030MJ4M6_32M.build.clksrc=SYSCLK_SRC_HSI32M
+J4M6.menu.pnum.HK32F030MJ4M6_32M.build.product_line=hk32f030mf4p6
+J4M6.menu.pnum.HK32F030MJ4M6_32M.build.variant=HK32F030M/J4M6
+J4M6.menu.pnum.HK32F030MJ4M6_32M.build.variant_h=variant_HK32F030MJ4M6.h
+J4M6.menu.pnum.HK32F030MJ4M6_32M.debug.svd_file={runtime.tools.HK32F030M_SVD.path}/svd/HK32F030M.svd
+
+# DEMO_F030M_LSI board
+J4M6.menu.pnum.HK32F030MJ4M6_LSI=HK32F030MJ4M6 (LSI internal RC oscillator)
+J4M6.menu.pnum.HK32F030MJ4M6_LSI.upload.maximum_size=16384
+J4M6.menu.pnum.HK32F030MJ4M6_LSI.upload.maximum_data_size=2048
+J4M6.menu.pnum.HK32F030MJ4M6_LSI.build.board=HK32F030MJ4M6
+J4M6.menu.pnum.HK32F030MJ4M6_LSI.build.clksrc=SYSCLK_SRC_LSI
+J4M6.menu.pnum.HK32F030MJ4M6_LSI.build.product_line=hk32f030mf4p6
+J4M6.menu.pnum.HK32F030MJ4M6_LSI.build.variant=HK32F030M/J4M6
+J4M6.menu.pnum.HK32F030MJ4M6_LSI.build.variant_h=variant_HK32F030MJ4M6.h
+J4M6.menu.pnum.HK32F030MJ4M6_LSI.debug.svd_file={runtime.tools.HK32F030M_SVD.path}/svd/HK32F030M.svd
+
+# DEMO_F030M_EXTKLK board
+J4M6.menu.pnum.HK32F030MJ4M6_EXT=HK32F030MJ4M6 (External clock)
+J4M6.menu.pnum.HK32F030MJ4M6_EXT.upload.maximum_size=16384
+J4M6.menu.pnum.HK32F030MJ4M6_EXT.upload.maximum_data_size=2048
+J4M6.menu.pnum.HK32F030MJ4M6_EXT.build.board=HK32F030MJ4M6
+J4M6.menu.pnum.HK32F030MJ4M6_EXT.build.clksrc=SYSCLK_SCR_EXTCLK_IO
+J4M6.menu.pnum.HK32F030MJ4M6_EXT.build.product_line=hk32f030mf4p6
+J4M6.menu.pnum.HK32F030MJ4M6_EXT.build.variant=HK32F030M/J4M6
+J4M6.menu.pnum.HK32F030MJ4M6_EXT.build.variant_h=variant_HK32F030MJ4M6.h
+J4M6.menu.pnum.HK32F030MJ4M6_EXT.debug.svd_file={runtime.tools.HK32F030M_SVD.path}/svd/HK32F030M.svd
+
+J4M6.menu.extclk.32mhz=32000Khz
+J4M6.menu.extclk.24mhz=24000Khz
+J4M6.menu.extclk.24mhz.build.extclk=24000000
+J4M6.menu.extclk.20mhz=20000Khz
+J4M6.menu.extclk.20mhz.build.extclk=20000000
+J4M6.menu.extclk.16mhz=16000Khz
+J4M6.menu.extclk.16mhz.build.extclk=16000000
+J4M6.menu.extclk.12mhz=120000Khz
+J4M6.menu.extclk.12mhz.build.extclk=12000000
+J4M6.menu.extclk.10mhz=10000Khz
+J4M6.menu.extclk.10mhz.build.extclk=10000000
+J4M6.menu.extclk.8mhz=8000Khz
+J4M6.menu.extclk.8mhz.build.extclk=8000000
+J4M6.menu.extclk.73728khz=73728Khz
+J4M6.menu.extclk.73728khz.build.extclk=73728000
+J4M6.menu.extclk.6mhz=6000Khz
+J4M6.menu.extclk.6mhz.build.extclk=6000000
+J4M6.menu.extclk.4mhz=4000Khz
+J4M6.menu.extclk.4mhz.build.extclk=4000000
+J4M6.menu.extclk.36864khz=36864Khz
+J4M6.menu.extclk.36864khz.build.extclk=36864000
+J4M6.menu.extclk.2mhz=2000Khz
+J4M6.menu.extclk.2mhz.build.extclk=2000000
+J4M6.menu.extclk.1mhz=4000Khz
+J4M6.menu.extclk.1mhz.build.extclk=1000000
+
+# Upload menu
+J4M6.menu.upload_method.OpenOCDSTLink=OpenOCD STLink (SWD)
+J4M6.menu.upload_method.OpenOCDSTLink.upload.protocol=stlink
+J4M6.menu.upload_method.OpenOCDSTLink.upload.tool=openocd_upload
+
+J4M6.menu.upload_method.OpenOCDDapLink=OpenOCD DapLink (SWD)
+J4M6.menu.upload_method.OpenOCDDapLink.upload.protocol=cmsis-dap
+J4M6.menu.upload_method.OpenOCDDapLink.upload.tool=openocd_upload
+J4M6.menu.upload_method.OpenOCDDapLink.debug.server.openocd.scripts.0=interface/cmsis-dap.cfg
+J4M6.menu.upload_method.OpenOCDDapLink.debug.server.openocd.scripts.1={runtime.platform.path}/debugger/select_swd.cfg
+
+J4M6.menu.xserial.generic=Enabled (generic 'Serial')
+J4M6.menu.xserial.none=Enabled (no generic 'Serial')
+J4M6.menu.xserial.none.build.xSerial=-DHAL_UART_MODULE_ENABLED -DHWSERIAL_NONE
+J4M6.menu.xserial.disabled=Disabled (no Serial support)
+J4M6.menu.xserial.disabled.build.xSerial=
+
+J4M6.menu.xi2c.generic=Enabled (generic 'I2C')
+J4M6.menu.xi2c.none=Enabled (no generic 'I2C')
+J4M6.menu.xi2c.none.build.xi2c=-DHAL_I2C_MODULE_ENABLED -DI2C_NONE
+J4M6.menu.xi2c.disabled=Disabled (no I2C support)
+J4M6.menu.xi2c.disabled.build.xI2C=
+
+J4M6.menu.xspi.generic=Enabled (generic 'SPI')
+J4M6.menu.xspi.none=Enabled (no generic 'SPI')
+J4M6.menu.xspi.none.build.xspi=-DHAL_SPI_MODULE_ENABLED -DSPI_NONE
+J4M6.menu.xspi.disabled=Disabled (no SPI support)
+J4M6.menu.xspi.disabled.build.xSPI=
+
+J4M6.menu.rtos.enabled=Enabled
+J4M6.menu.rtos.disabled=Disabled
+J4M6.menu.rtos.disabled.build.RTOS=
+
+J4M6.menu.opt.osstd=Smallest (-Os default)
+J4M6.menu.opt.oslto=Smallest (-Os) with LTO
+J4M6.menu.opt.oslto.build.flags.optimize=-Os -flto
+J4M6.menu.opt.o1std=Fast (-O1)
+J4M6.menu.opt.o1std.build.flags.optimize=-O1
+J4M6.menu.opt.o1lto=Fast (-O1) with LTO
+J4M6.menu.opt.o1lto.build.flags.optimize=-O1 -flto
+J4M6.menu.opt.o2std=Faster (-O2)
+J4M6.menu.opt.o2std.build.flags.optimize=-O2
+J4M6.menu.opt.o2lto=Faster (-O2) with LTO
+J4M6.menu.opt.o2lto.build.flags.optimize=-O2 -flto
+J4M6.menu.opt.o3std=Fastest (-O3)
+J4M6.menu.opt.o3std.build.flags.optimize=-O3
+J4M6.menu.opt.o3lto=Fastest (-O3) with LTO
+J4M6.menu.opt.o3lto.build.flags.optimize=-O3 -flto
+J4M6.menu.opt.ogstd=Debug (-Og)
+J4M6.menu.opt.ogstd.build.flags.optimize=-Og
+J4M6.menu.opt.o0std=No Optimization (-O0)
+J4M6.menu.opt.o0std.build.flags.optimize=-O0
+
+J4M6.menu.dbg.none=None
+J4M6.menu.dbg.enable_sym=Symbols Enabled (-g)
+J4M6.menu.dbg.enable_sym.build.flags.debug=-g -DNDEBUG
+J4M6.menu.dbg.enable_log=Core logs Enabled
+J4M6.menu.dbg.enable_log.build.flags.debug=
+J4M6.menu.dbg.enable_all=Core Logs and Symbols Enabled (-g)
+J4M6.menu.dbg.enable_all.build.flags.debug=-g
+
+J4M6.menu.rtlib.nano=Newlib Nano (default)
+J4M6.menu.rtlib.nanofp=Newlib Nano + Float Printf
+J4M6.menu.rtlib.nanofp.build.flags.ldspecs=--specs=nano.specs -u _printf_float
+J4M6.menu.rtlib.nanofs=Newlib Nano + Float Scanf
+J4M6.menu.rtlib.nanofs.build.flags.ldspecs=--specs=nano.specs -u _scanf_float
+J4M6.menu.rtlib.nanofps=Newlib Nano + Float Printf/Scanf
+J4M6.menu.rtlib.nanofps.build.flags.ldspecs=--specs=nano.specs -u _printf_float -u _scanf_float
+J4M6.menu.rtlib.full=Newlib Standard
+J4M6.menu.rtlib.full.build.flags.ldspecs=
+
+###############################
+# HK32F030MD4P6
+D4P6.name=HK32F030MD4P6
+
+D4P6.build.core=arduino
+D4P6.build.board=D4P6
+D4P6.build.mcu=cortex-m0
+D4P6.build.series=HK32F030M
+D4P6.build.st_extra_flags=-D{build.product_line} {build.xSerial} {build.xI2C} {build.xSPI} {build.RTOS} -DEXTCLK_VALUE={build.extclk}
+D4P6.build.flash_offset=0x0
+D4P6.upload.maximum_size=0
+D4P6.upload.maximum_data_size=0
+D4P6.openocd.target=stm32f0x
+D4P6.vid.0=0x0483
+D4P6.pid.0=0x5740
+
+# DEMO_F030M_8M board
+D4P6.menu.pnum.HK32F030MD4P6=HK32F030MD4P6 (HSI 8Mhz)
+D4P6.menu.pnum.HK32F030MD4P6.upload.maximum_size=16384
+D4P6.menu.pnum.HK32F030MD4P6.upload.maximum_data_size=2048
+D4P6.menu.pnum.HK32F030MD4P6.build.board=HK32F030MD4P6
+D4P6.menu.pnum.HK32F030MD4P6.build.clksrc=SYSCLK_SRC_HSI8M
+D4P6.menu.pnum.HK32F030MD4P6.build.product_line=hk32f030mf4p6
+D4P6.menu.pnum.HK32F030MD4P6.build.variant=HK32F030M/D4P6
+D4P6.menu.pnum.HK32F030MD4P6.build.variant_h=variant_HK32F030MD4P6.h
+D4P6.menu.pnum.HK32F030MD4P6.debug.svd_file={runtime.tools.HK32F030M_SVD.path}/svd/HK32F030M.svd
+
+# DEMO_F030M_16M board
+D4P6.menu.pnum.HK32F030MD4P6_16M=HK32F030MD4P6 (HSI 16Mhz)
+D4P6.menu.pnum.HK32F030MD4P6_16M.upload.maximum_size=16384
+D4P6.menu.pnum.HK32F030MD4P6_16M.upload.maximum_data_size=2048
+D4P6.menu.pnum.HK32F030MD4P6_16M.build.board=HK32F030MD4P6
+D4P6.menu.pnum.HK32F030MD4P6_16M.build.clksrc=SYSCLK_SRC_HSI16M
+D4P6.menu.pnum.HK32F030MD4P6_16M.build.product_line=hk32f030mf4p6
+D4P6.menu.pnum.HK32F030MD4P6_16M.build.variant=HK32F030M/D4P6
+D4P6.menu.pnum.HK32F030MD4P6_16M.build.variant_h=variant_HK32F030MD4P6.h
+D4P6.menu.pnum.HK32F030MD4P6_16M.debug.svd_file={runtime.tools.HK32F030M_SVD.path}/svd/HK32F030M.svd
+
+# DEMO_F030M_32M board
+D4P6.menu.pnum.HK32F030MD4P6_32M=HK32F030MD4P6 (HSI 32Mhz)
+D4P6.menu.pnum.HK32F030MD4P6_32M.upload.maximum_size=16384
+D4P6.menu.pnum.HK32F030MD4P6_32M.upload.maximum_data_size=2048
+D4P6.menu.pnum.HK32F030MD4P6_32M.build.board=HK32F030MD4P6
+D4P6.menu.pnum.HK32F030MD4P6_32M.build.clksrc=SYSCLK_SRC_HSI32M
+D4P6.menu.pnum.HK32F030MD4P6_32M.build.product_line=hk32f030mf4p6
+D4P6.menu.pnum.HK32F030MD4P6_32M.build.variant=HK32F030M/D4P6
+D4P6.menu.pnum.HK32F030MD4P6_32M.build.variant_h=variant_HK32F030MD4P6.h
+D4P6.menu.pnum.HK32F030MD4P6_32M.debug.svd_file={runtime.tools.HK32F030M_SVD.path}/svd/HK32F030M.svd
+
+# DEMO_F030M_LSI board
+D4P6.menu.pnum.HK32F030MD4P6_LSI=HK32F030MD4P6 (LSI internal RC oscillator)
+D4P6.menu.pnum.HK32F030MD4P6_LSI.upload.maximum_size=16384
+D4P6.menu.pnum.HK32F030MD4P6_LSI.upload.maximum_data_size=2048
+D4P6.menu.pnum.HK32F030MD4P6_LSI.build.board=HK32F030MD4P6
+D4P6.menu.pnum.HK32F030MD4P6_LSI.build.clksrc=SYSCLK_SRC_LSI
+D4P6.menu.pnum.HK32F030MD4P6_LSI.build.product_line=hk32f030mf4p6
+D4P6.menu.pnum.HK32F030MD4P6_LSI.build.variant=HK32F030M/D4P6
+D4P6.menu.pnum.HK32F030MD4P6_LSI.build.variant_h=variant_HK32F030MD4P6.h
+D4P6.menu.pnum.HK32F030MD4P6_LSI.debug.svd_file={runtime.tools.HK32F030M_SVD.path}/svd/HK32F030M.svd
+
+# DEMO_F030M_EXTKLK board
+D4P6.menu.pnum.HK32F030MD4P6_EXT=HK32F030MD4P6 (External clock)
+D4P6.menu.pnum.HK32F030MD4P6_EXT.upload.maximum_size=16384
+D4P6.menu.pnum.HK32F030MD4P6_EXT.upload.maximum_data_size=2048
+D4P6.menu.pnum.HK32F030MD4P6_EXT.build.board=HK32F030MD4P6
+D4P6.menu.pnum.HK32F030MD4P6_EXT.build.clksrc=SYSCLK_SCR_EXTCLK_IO
+D4P6.menu.pnum.HK32F030MD4P6_EXT.build.product_line=hk32f030mf4p6
+D4P6.menu.pnum.HK32F030MD4P6_EXT.build.variant=HK32F030M/D4P6
+D4P6.menu.pnum.HK32F030MD4P6_EXT.build.variant_h=variant_HK32F030MD4P6.h
+D4P6.menu.pnum.HK32F030MD4P6_EXT.debug.svd_file={runtime.tools.HK32F030M_SVD.path}/svd/HK32F030M.svd
+
+D4P6.menu.extclk.32mhz=32000Khz
+D4P6.menu.extclk.24mhz=24000Khz
+D4P6.menu.extclk.24mhz.build.extclk=24000000
+D4P6.menu.extclk.20mhz=20000Khz
+D4P6.menu.extclk.20mhz.build.extclk=20000000
+D4P6.menu.extclk.16mhz=16000Khz
+D4P6.menu.extclk.16mhz.build.extclk=16000000
+D4P6.menu.extclk.12mhz=120000Khz
+D4P6.menu.extclk.12mhz.build.extclk=12000000
+D4P6.menu.extclk.10mhz=10000Khz
+D4P6.menu.extclk.10mhz.build.extclk=10000000
+D4P6.menu.extclk.8mhz=8000Khz
+D4P6.menu.extclk.8mhz.build.extclk=8000000
+D4P6.menu.extclk.73728khz=73728Khz
+D4P6.menu.extclk.73728khz.build.extclk=73728000
+D4P6.menu.extclk.6mhz=6000Khz
+D4P6.menu.extclk.6mhz.build.extclk=6000000
+D4P6.menu.extclk.4mhz=4000Khz
+D4P6.menu.extclk.4mhz.build.extclk=4000000
+D4P6.menu.extclk.36864khz=36864Khz
+D4P6.menu.extclk.36864khz.build.extclk=36864000
+D4P6.menu.extclk.2mhz=2000Khz
+D4P6.menu.extclk.2mhz.build.extclk=2000000
+D4P6.menu.extclk.1mhz=4000Khz
+D4P6.menu.extclk.1mhz.build.extclk=1000000
+
+# Upload menu
+D4P6.menu.upload_method.OpenOCDSTLink=OpenOCD STLink (SWD)
+D4P6.menu.upload_method.OpenOCDSTLink.upload.protocol=stlink
+D4P6.menu.upload_method.OpenOCDSTLink.upload.tool=openocd_upload
+
+D4P6.menu.upload_method.OpenOCDDapLink=OpenOCD DapLink (SWD)
+D4P6.menu.upload_method.OpenOCDDapLink.upload.protocol=cmsis-dap
+D4P6.menu.upload_method.OpenOCDDapLink.upload.tool=openocd_upload
+D4P6.menu.upload_method.OpenOCDDapLink.debug.server.openocd.scripts.0=interface/cmsis-dap.cfg
+D4P6.menu.upload_method.OpenOCDDapLink.debug.server.openocd.scripts.1={runtime.platform.path}/debugger/select_swd.cfg
+
+D4P6.menu.xserial.generic=Enabled (generic 'Serial')
+D4P6.menu.xserial.none=Enabled (no generic 'Serial')
+D4P6.menu.xserial.none.build.xSerial=-DHAL_UART_MODULE_ENABLED -DHWSERIAL_NONE
+D4P6.menu.xserial.disabled=Disabled (no Serial support)
+D4P6.menu.xserial.disabled.build.xSerial=
+
+D4P6.menu.xi2c.generic=Enabled (generic 'I2C')
+D4P6.menu.xi2c.none=Enabled (no generic 'I2C')
+D4P6.menu.xi2c.none.build.xi2c=-DHAL_I2C_MODULE_ENABLED -DI2C_NONE
+D4P6.menu.xi2c.disabled=Disabled (no I2C support)
+D4P6.menu.xi2c.disabled.build.xI2C=
+
+D4P6.menu.xspi.generic=Enabled (generic 'SPI')
+D4P6.menu.xspi.none=Enabled (no generic 'SPI')
+D4P6.menu.xspi.none.build.xspi=-DHAL_SPI_MODULE_ENABLED -DSPI_NONE
+D4P6.menu.xspi.disabled=Disabled (no SPI support)
+D4P6.menu.xspi.disabled.build.xSPI=
+
+D4P6.menu.rtos.enabled=Enabled
+D4P6.menu.rtos.disabled=Disabled
+D4P6.menu.rtos.disabled.build.RTOS=
+
+D4P6.menu.opt.osstd=Smallest (-Os default)
+D4P6.menu.opt.oslto=Smallest (-Os) with LTO
+D4P6.menu.opt.oslto.build.flags.optimize=-Os -flto
+D4P6.menu.opt.o1std=Fast (-O1)
+D4P6.menu.opt.o1std.build.flags.optimize=-O1
+D4P6.menu.opt.o1lto=Fast (-O1) with LTO
+D4P6.menu.opt.o1lto.build.flags.optimize=-O1 -flto
+D4P6.menu.opt.o2std=Faster (-O2)
+D4P6.menu.opt.o2std.build.flags.optimize=-O2
+D4P6.menu.opt.o2lto=Faster (-O2) with LTO
+D4P6.menu.opt.o2lto.build.flags.optimize=-O2 -flto
+D4P6.menu.opt.o3std=Fastest (-O3)
+D4P6.menu.opt.o3std.build.flags.optimize=-O3
+D4P6.menu.opt.o3lto=Fastest (-O3) with LTO
+D4P6.menu.opt.o3lto.build.flags.optimize=-O3 -flto
+D4P6.menu.opt.ogstd=Debug (-Og)
+D4P6.menu.opt.ogstd.build.flags.optimize=-Og
+D4P6.menu.opt.o0std=No Optimization (-O0)
+D4P6.menu.opt.o0std.build.flags.optimize=-O0
+
+D4P6.menu.dbg.none=None
+D4P6.menu.dbg.enable_sym=Symbols Enabled (-g)
+D4P6.menu.dbg.enable_sym.build.flags.debug=-g -DNDEBUG
+D4P6.menu.dbg.enable_log=Core logs Enabled
+D4P6.menu.dbg.enable_log.build.flags.debug=
+D4P6.menu.dbg.enable_all=Core Logs and Symbols Enabled (-g)
+D4P6.menu.dbg.enable_all.build.flags.debug=-g
+
+D4P6.menu.rtlib.nano=Newlib Nano (default)
+D4P6.menu.rtlib.nanofp=Newlib Nano + Float Printf
+D4P6.menu.rtlib.nanofp.build.flags.ldspecs=--specs=nano.specs -u _printf_float
+D4P6.menu.rtlib.nanofs=Newlib Nano + Float Scanf
+D4P6.menu.rtlib.nanofs.build.flags.ldspecs=--specs=nano.specs -u _scanf_float
+D4P6.menu.rtlib.nanofps=Newlib Nano + Float Printf/Scanf
+D4P6.menu.rtlib.nanofps.build.flags.ldspecs=--specs=nano.specs -u _printf_float -u _scanf_float
+D4P6.menu.rtlib.full=Newlib Standard
+D4P6.menu.rtlib.full.build.flags.ldspecs=
+
+###############################
+# HK32F030MF4P6
+F4P6.name=HK32F030MF4P6
+
+F4P6.build.core=arduino
+F4P6.build.board=F4P6
+F4P6.build.mcu=cortex-m0
+F4P6.build.series=HK32F030M
+F4P6.build.st_extra_flags=-D{build.product_line} {build.xSerial} {build.xI2C} {build.xSPI} {build.RTOS} -DEXTCLK_VALUE={build.extclk}
+F4P6.build.flash_offset=0x0
+F4P6.upload.maximum_size=0
+F4P6.upload.maximum_data_size=0
+F4P6.openocd.target=stm32f0x
+F4P6.vid.0=0x0483
+F4P6.pid.0=0x5740
+
+# DEMO_F030M_8M board
+F4P6.menu.pnum.HK32F030MF4P6=HK32F030MF4P6 (HSI 8Mhz)
+F4P6.menu.pnum.HK32F030MF4P6.upload.maximum_size=16384
+F4P6.menu.pnum.HK32F030MF4P6.upload.maximum_data_size=2048
+F4P6.menu.pnum.HK32F030MF4P6.build.board=HK32F030MF4P6
+F4P6.menu.pnum.HK32F030MF4P6.build.clksrc=SYSCLK_SRC_HSI8M
+F4P6.menu.pnum.HK32F030MF4P6.build.product_line=hk32f030mf4p6
+F4P6.menu.pnum.HK32F030MF4P6.build.variant=HK32F030M/F4P6
+F4P6.menu.pnum.HK32F030MF4P6.build.variant_h=variant_HK32F030MF4P6.h
+F4P6.menu.pnum.HK32F030MF4P6.debug.svd_file={runtime.tools.HK32F030M_SVD.path}/svd/HK32F030M.svd
+
+# DEMO_F030M_16M board
+F4P6.menu.pnum.HK32F030MF4P6_16M=HK32F030MF4P6 (HSI 16Mhz)
+F4P6.menu.pnum.HK32F030MF4P6_16M.upload.maximum_size=16384
+F4P6.menu.pnum.HK32F030MF4P6_16M.upload.maximum_data_size=2048
+F4P6.menu.pnum.HK32F030MF4P6_16M.build.board=HK32F030MF4P6
+F4P6.menu.pnum.HK32F030MF4P6_16M.build.clksrc=SYSCLK_SRC_HSI16M
+F4P6.menu.pnum.HK32F030MF4P6_16M.build.product_line=hk32f030mf4p6
+F4P6.menu.pnum.HK32F030MF4P6_16M.build.variant=HK32F030M/F4P6
+F4P6.menu.pnum.HK32F030MF4P6_16M.build.variant_h=variant_HK32F030MF4P6.h
+F4P6.menu.pnum.HK32F030MF4P6_16M.debug.svd_file={runtime.tools.HK32F030M_SVD.path}/svd/HK32F030M.svd
+
+# DEMO_F030M_32M board
+F4P6.menu.pnum.HK32F030MF4P6_32M=HK32F030MF4P6 (HSI 32Mhz)
+F4P6.menu.pnum.HK32F030MF4P6_32M.upload.maximum_size=16384
+F4P6.menu.pnum.HK32F030MF4P6_32M.upload.maximum_data_size=2048
+F4P6.menu.pnum.HK32F030MF4P6_32M.build.board=HK32F030MF4P6
+F4P6.menu.pnum.HK32F030MF4P6_32M.build.clksrc=SYSCLK_SRC_HSI32M
+F4P6.menu.pnum.HK32F030MF4P6_32M.build.product_line=hk32f030mf4p6
+F4P6.menu.pnum.HK32F030MF4P6_32M.build.variant=HK32F030M/F4P6
+F4P6.menu.pnum.HK32F030MF4P6_32M.build.variant_h=variant_HK32F030MF4P6.h
+F4P6.menu.pnum.HK32F030MF4P6_32M.debug.svd_file={runtime.tools.HK32F030M_SVD.path}/svd/HK32F030M.svd
+
+# DEMO_F030M_LSI board
+F4P6.menu.pnum.HK32F030MF4P6_LSI=HK32F030MF4P6 (LSI internal RC oscillator)
+F4P6.menu.pnum.HK32F030MF4P6_LSI.upload.maximum_size=16384
+F4P6.menu.pnum.HK32F030MF4P6_LSI.upload.maximum_data_size=2048
+F4P6.menu.pnum.HK32F030MF4P6_LSI.build.board=HK32F030MF4P6
+F4P6.menu.pnum.HK32F030MF4P6_LSI.build.clksrc=SYSCLK_SRC_LSI
+F4P6.menu.pnum.HK32F030MF4P6_LSI.build.product_line=hk32f030mf4p6
+F4P6.menu.pnum.HK32F030MF4P6_LSI.build.variant=HK32F030M/F4P6
+F4P6.menu.pnum.HK32F030MF4P6_LSI.build.variant_h=variant_HK32F030MF4P6.h
+F4P6.menu.pnum.HK32F030MF4P6_LSI.debug.svd_file={runtime.tools.HK32F030M_SVD.path}/svd/HK32F030M.svd
+
+# DEMO_F030M_EXTKLK board
+F4P6.menu.pnum.HK32F030MF4P6_EXT=HK32F030MF4P6 (External clock)
+F4P6.menu.pnum.HK32F030MF4P6_EXT.upload.maximum_size=16384
+F4P6.menu.pnum.HK32F030MF4P6_EXT.upload.maximum_data_size=2048
+F4P6.menu.pnum.HK32F030MF4P6_EXT.build.board=HK32F030MF4P6
+F4P6.menu.pnum.HK32F030MF4P6_EXT.build.clksrc=SYSCLK_SCR_EXTCLK_IO
+F4P6.menu.pnum.HK32F030MF4P6_EXT.build.product_line=hk32f030mf4p6
+F4P6.menu.pnum.HK32F030MF4P6_EXT.build.variant=HK32F030M/F4P6
+F4P6.menu.pnum.HK32F030MF4P6_EXT.build.variant_h=variant_HK32F030MF4P6.h
+F4P6.menu.pnum.HK32F030MF4P6_EXT.debug.svd_file={runtime.tools.HK32F030M_SVD.path}/svd/HK32F030M.svd
+
+F4P6.menu.extclk.32mhz=32000Khz
+F4P6.menu.extclk.24mhz=24000Khz
+F4P6.menu.extclk.24mhz.build.extclk=24000000
+F4P6.menu.extclk.20mhz=20000Khz
+F4P6.menu.extclk.20mhz.build.extclk=20000000
+F4P6.menu.extclk.16mhz=16000Khz
+F4P6.menu.extclk.16mhz.build.extclk=16000000
+F4P6.menu.extclk.12mhz=120000Khz
+F4P6.menu.extclk.12mhz.build.extclk=12000000
+F4P6.menu.extclk.10mhz=10000Khz
+F4P6.menu.extclk.10mhz.build.extclk=10000000
+F4P6.menu.extclk.8mhz=8000Khz
+F4P6.menu.extclk.8mhz.build.extclk=8000000
+F4P6.menu.extclk.73728khz=73728Khz
+F4P6.menu.extclk.73728khz.build.extclk=73728000
+F4P6.menu.extclk.6mhz=6000Khz
+F4P6.menu.extclk.6mhz.build.extclk=6000000
+F4P6.menu.extclk.4mhz=4000Khz
+F4P6.menu.extclk.4mhz.build.extclk=4000000
+F4P6.menu.extclk.36864khz=36864Khz
+F4P6.menu.extclk.36864khz.build.extclk=36864000
+F4P6.menu.extclk.2mhz=2000Khz
+F4P6.menu.extclk.2mhz.build.extclk=2000000
+F4P6.menu.extclk.1mhz=4000Khz
+F4P6.menu.extclk.1mhz.build.extclk=1000000
+
+# Upload menu
+F4P6.menu.upload_method.OpenOCDSTLink=OpenOCD STLink (SWD)
+F4P6.menu.upload_method.OpenOCDSTLink.upload.protocol=stlink
+F4P6.menu.upload_method.OpenOCDSTLink.upload.tool=openocd_upload
+
+F4P6.menu.upload_method.OpenOCDDapLink=OpenOCD DapLink (SWD)
+F4P6.menu.upload_method.OpenOCDDapLink.upload.protocol=cmsis-dap
+F4P6.menu.upload_method.OpenOCDDapLink.upload.tool=openocd_upload
+F4P6.menu.upload_method.OpenOCDDapLink.debug.server.openocd.scripts.0=interface/cmsis-dap.cfg
+F4P6.menu.upload_method.OpenOCDDapLink.debug.server.openocd.scripts.1={runtime.platform.path}/debugger/select_swd.cfg
+
+F4P6.menu.xserial.generic=Enabled (generic 'Serial')
+F4P6.menu.xserial.none=Enabled (no generic 'Serial')
+F4P6.menu.xserial.none.build.xSerial=-DHAL_UART_MODULE_ENABLED -DHWSERIAL_NONE
+F4P6.menu.xserial.disabled=Disabled (no Serial support)
+F4P6.menu.xserial.disabled.build.xSerial=
+
+F4P6.menu.xi2c.generic=Enabled (generic 'I2C')
+F4P6.menu.xi2c.none=Enabled (no generic 'I2C')
+F4P6.menu.xi2c.none.build.xi2c=-DHAL_I2C_MODULE_ENABLED -DI2C_NONE
+F4P6.menu.xi2c.disabled=Disabled (no I2C support)
+F4P6.menu.xi2c.disabled.build.xI2C=
+
+F4P6.menu.xspi.generic=Enabled (generic 'SPI')
+F4P6.menu.xspi.none=Enabled (no generic 'SPI')
+F4P6.menu.xspi.none.build.xspi=-DHAL_SPI_MODULE_ENABLED -DSPI_NONE
+F4P6.menu.xspi.disabled=Disabled (no SPI support)
+F4P6.menu.xspi.disabled.build.xSPI=
+
+F4P6.menu.rtos.enabled=Enabled
+F4P6.menu.rtos.disabled=Disabled
+F4P6.menu.rtos.disabled.build.RTOS=
+
+F4P6.menu.opt.osstd=Smallest (-Os default)
+F4P6.menu.opt.oslto=Smallest (-Os) with LTO
+F4P6.menu.opt.oslto.build.flags.optimize=-Os -flto
+F4P6.menu.opt.o1std=Fast (-O1)
+F4P6.menu.opt.o1std.build.flags.optimize=-O1
+F4P6.menu.opt.o1lto=Fast (-O1) with LTO
+F4P6.menu.opt.o1lto.build.flags.optimize=-O1 -flto
+F4P6.menu.opt.o2std=Faster (-O2)
+F4P6.menu.opt.o2std.build.flags.optimize=-O2
+F4P6.menu.opt.o2lto=Faster (-O2) with LTO
+F4P6.menu.opt.o2lto.build.flags.optimize=-O2 -flto
+F4P6.menu.opt.o3std=Fastest (-O3)
+F4P6.menu.opt.o3std.build.flags.optimize=-O3
+F4P6.menu.opt.o3lto=Fastest (-O3) with LTO
+F4P6.menu.opt.o3lto.build.flags.optimize=-O3 -flto
+F4P6.menu.opt.ogstd=Debug (-Og)
+F4P6.menu.opt.ogstd.build.flags.optimize=-Og
+F4P6.menu.opt.o0std=No Optimization (-O0)
+F4P6.menu.opt.o0std.build.flags.optimize=-O0
+
+F4P6.menu.dbg.none=None
+F4P6.menu.dbg.enable_sym=Symbols Enabled (-g)
+F4P6.menu.dbg.enable_sym.build.flags.debug=-g -DNDEBUG
+F4P6.menu.dbg.enable_log=Core logs Enabled
+F4P6.menu.dbg.enable_log.build.flags.debug=
+F4P6.menu.dbg.enable_all=Core Logs and Symbols Enabled (-g)
+F4P6.menu.dbg.enable_all.build.flags.debug=-g
+
+F4P6.menu.rtlib.nano=Newlib Nano (default)
+F4P6.menu.rtlib.nanofp=Newlib Nano + Float Printf
+F4P6.menu.rtlib.nanofp.build.flags.ldspecs=--specs=nano.specs -u _printf_float
+F4P6.menu.rtlib.nanofs=Newlib Nano + Float Scanf
+F4P6.menu.rtlib.nanofs.build.flags.ldspecs=--specs=nano.specs -u _scanf_float
+F4P6.menu.rtlib.nanofps=Newlib Nano + Float Printf/Scanf
+F4P6.menu.rtlib.nanofps.build.flags.ldspecs=--specs=nano.specs -u _printf_float -u _scanf_float
+F4P6.menu.rtlib.full=Newlib Standard
+F4P6.menu.rtlib.full.build.flags.ldspecs=
+
+###############################
+# HK32F030MF4U6
+F4U6.name=HK32F030MF4U6
+
+F4U6.build.core=arduino
+F4U6.build.board=F4U6
+F4U6.build.mcu=cortex-m0
+F4U6.build.series=HK32F030M
+F4U6.build.st_extra_flags=-D{build.product_line} {build.xSerial} {build.xI2C} {build.xSPI} {build.RTOS} -DEXTCLK_VALUE={build.extclk}
+F4U6.build.flash_offset=0x0
+F4U6.upload.maximum_size=0
+F4U6.upload.maximum_data_size=0
+F4U6.openocd.target=stm32f0x
+F4U6.vid.0=0x0483
+F4U6.pid.0=0x5740
+
+# DEMO_F030M_8M board
+F4U6.menu.pnum.HK32F030MF4U6=HK32F030MF4U6 (HSI 8Mhz)
+F4U6.menu.pnum.HK32F030MF4U6.upload.maximum_size=16384
+F4U6.menu.pnum.HK32F030MF4U6.upload.maximum_data_size=2048
+F4U6.menu.pnum.HK32F030MF4U6.build.board=HK32F030MF4U6
+F4U6.menu.pnum.HK32F030MF4U6.build.clksrc=SYSCLK_SRC_HSI8M
+F4U6.menu.pnum.HK32F030MF4U6.build.product_line=hk32f030mf4p6
+F4U6.menu.pnum.HK32F030MF4U6.build.variant=HK32F030M/F4U6
+F4U6.menu.pnum.HK32F030MF4U6.build.variant_h=variant_HK32F030MF4U6.h
+F4U6.menu.pnum.HK32F030MF4U6.debug.svd_file={runtime.tools.HK32F030M_SVD.path}/svd/HK32F030M.svd
+
+# DEMO_F030M_16M board
+F4U6.menu.pnum.HK32F030MF4U6_16M=HK32F030MF4U6 (HSI 16Mhz)
+F4U6.menu.pnum.HK32F030MF4U6_16M.upload.maximum_size=16384
+F4U6.menu.pnum.HK32F030MF4U6_16M.upload.maximum_data_size=2048
+F4U6.menu.pnum.HK32F030MF4U6_16M.build.board=HK32F030MF4U6
+F4U6.menu.pnum.HK32F030MF4U6_16M.build.clksrc=SYSCLK_SRC_HSI16M
+F4U6.menu.pnum.HK32F030MF4U6_16M.build.product_line=hk32f030mf4p6
+F4U6.menu.pnum.HK32F030MF4U6_16M.build.variant=HK32F030M/F4U6
+F4U6.menu.pnum.HK32F030MF4U6_16M.build.variant_h=variant_HK32F030MF4U6.h
+F4U6.menu.pnum.HK32F030MF4U6_16M.debug.svd_file={runtime.tools.HK32F030M_SVD.path}/svd/HK32F030M.svd
+
+# DEMO_F030M_32M board
+F4U6.menu.pnum.HK32F030MF4U6_32M=HK32F030MF4U6 (HSI 32Mhz)
+F4U6.menu.pnum.HK32F030MF4U6_32M.upload.maximum_size=16384
+F4U6.menu.pnum.HK32F030MF4U6_32M.upload.maximum_data_size=2048
+F4U6.menu.pnum.HK32F030MF4U6_32M.build.board=HK32F030MF4U6
+F4U6.menu.pnum.HK32F030MF4U6_32M.build.clksrc=SYSCLK_SRC_HSI32M
+F4U6.menu.pnum.HK32F030MF4U6_32M.build.product_line=hk32f030mf4p6
+F4U6.menu.pnum.HK32F030MF4U6_32M.build.variant=HK32F030M/F4U6
+F4U6.menu.pnum.HK32F030MF4U6_32M.build.variant_h=variant_HK32F030MF4U6.h
+F4U6.menu.pnum.HK32F030MF4U6_32M.debug.svd_file={runtime.tools.HK32F030M_SVD.path}/svd/HK32F030M.svd
+
+# DEMO_F030M_LSI board
+F4U6.menu.pnum.HK32F030MF4U6_LSI=HK32F030MF4U6 (LSI internal RC oscillator)
+F4U6.menu.pnum.HK32F030MF4U6_LSI.upload.maximum_size=16384
+F4U6.menu.pnum.HK32F030MF4U6_LSI.upload.maximum_data_size=2048
+F4U6.menu.pnum.HK32F030MF4U6_LSI.build.board=HK32F030MF4U6
+F4U6.menu.pnum.HK32F030MF4U6_LSI.build.clksrc=SYSCLK_SRC_LSI
+F4U6.menu.pnum.HK32F030MF4U6_LSI.build.product_line=hk32f030mf4p6
+F4U6.menu.pnum.HK32F030MF4U6_LSI.build.variant=HK32F030M/F4U6
+F4U6.menu.pnum.HK32F030MF4U6_LSI.build.variant_h=variant_HK32F030MF4U6.h
+F4U6.menu.pnum.HK32F030MF4U6_LSI.debug.svd_file={runtime.tools.HK32F030M_SVD.path}/svd/HK32F030M.svd
+
+# DEMO_F030M_EXTKLK board
+F4U6.menu.pnum.HK32F030MF4U6_EXT=HK32F030MF4U6 (External clock)
+F4U6.menu.pnum.HK32F030MF4U6_EXT.upload.maximum_size=16384
+F4U6.menu.pnum.HK32F030MF4U6_EXT.upload.maximum_data_size=2048
+F4U6.menu.pnum.HK32F030MF4U6_EXT.build.board=HK32F030MF4U6
+F4U6.menu.pnum.HK32F030MF4U6_EXT.build.clksrc=SYSCLK_SCR_EXTCLK_IO
+F4U6.menu.pnum.HK32F030MF4U6_EXT.build.product_line=hk32f030mf4p6
+F4U6.menu.pnum.HK32F030MF4U6_EXT.build.variant=HK32F030M/F4U6
+F4U6.menu.pnum.HK32F030MF4U6_EXT.build.variant_h=variant_HK32F030MF4U6.h
+F4U6.menu.pnum.HK32F030MF4U6_EXT.debug.svd_file={runtime.tools.HK32F030M_SVD.path}/svd/HK32F030M.svd
+
+F4U6.menu.extclk.32mhz=32000Khz
+F4U6.menu.extclk.24mhz=24000Khz
+F4U6.menu.extclk.24mhz.build.extclk=24000000
+F4U6.menu.extclk.20mhz=20000Khz
+F4U6.menu.extclk.20mhz.build.extclk=20000000
+F4U6.menu.extclk.16mhz=16000Khz
+F4U6.menu.extclk.16mhz.build.extclk=16000000
+F4U6.menu.extclk.12mhz=120000Khz
+F4U6.menu.extclk.12mhz.build.extclk=12000000
+F4U6.menu.extclk.10mhz=10000Khz
+F4U6.menu.extclk.10mhz.build.extclk=10000000
+F4U6.menu.extclk.8mhz=8000Khz
+F4U6.menu.extclk.8mhz.build.extclk=8000000
+F4U6.menu.extclk.73728khz=73728Khz
+F4U6.menu.extclk.73728khz.build.extclk=73728000
+F4U6.menu.extclk.6mhz=6000Khz
+F4U6.menu.extclk.6mhz.build.extclk=6000000
+F4U6.menu.extclk.4mhz=4000Khz
+F4U6.menu.extclk.4mhz.build.extclk=4000000
+F4U6.menu.extclk.36864khz=36864Khz
+F4U6.menu.extclk.36864khz.build.extclk=36864000
+F4U6.menu.extclk.2mhz=2000Khz
+F4U6.menu.extclk.2mhz.build.extclk=2000000
+F4U6.menu.extclk.1mhz=4000Khz
+F4U6.menu.extclk.1mhz.build.extclk=1000000
+
+# Upload menu
+F4U6.menu.upload_method.OpenOCDSTLink=OpenOCD STLink (SWD)
+F4U6.menu.upload_method.OpenOCDSTLink.upload.protocol=stlink
+F4U6.menu.upload_method.OpenOCDSTLink.upload.tool=openocd_upload
+
+F4U6.menu.upload_method.OpenOCDDapLink=OpenOCD DapLink (SWD)
+F4U6.menu.upload_method.OpenOCDDapLink.upload.protocol=cmsis-dap
+F4U6.menu.upload_method.OpenOCDDapLink.upload.tool=openocd_upload
+F4U6.menu.upload_method.OpenOCDDapLink.debug.server.openocd.scripts.0=interface/cmsis-dap.cfg
+F4U6.menu.upload_method.OpenOCDDapLink.debug.server.openocd.scripts.1={runtime.platform.path}/debugger/select_swd.cfg
+
+F4U6.menu.xserial.generic=Enabled (generic 'Serial')
+F4U6.menu.xserial.none=Enabled (no generic 'Serial')
+F4U6.menu.xserial.none.build.xSerial=-DHAL_UART_MODULE_ENABLED -DHWSERIAL_NONE
+F4U6.menu.xserial.disabled=Disabled (no Serial support)
+F4U6.menu.xserial.disabled.build.xSerial=
+
+F4U6.menu.xi2c.generic=Enabled (generic 'I2C')
+F4U6.menu.xi2c.none=Enabled (no generic 'I2C')
+F4U6.menu.xi2c.none.build.xi2c=-DHAL_I2C_MODULE_ENABLED -DI2C_NONE
+F4U6.menu.xi2c.disabled=Disabled (no I2C support)
+F4U6.menu.xi2c.disabled.build.xI2C=
+
+F4U6.menu.xspi.generic=Enabled (generic 'SPI')
+F4U6.menu.xspi.none=Enabled (no generic 'SPI')
+F4U6.menu.xspi.none.build.xspi=-DHAL_SPI_MODULE_ENABLED -DSPI_NONE
+F4U6.menu.xspi.disabled=Disabled (no SPI support)
+F4U6.menu.xspi.disabled.build.xSPI=
+
+F4U6.menu.rtos.enabled=Enabled
+F4U6.menu.rtos.disabled=Disabled
+F4U6.menu.rtos.disabled.build.RTOS=
+
+F4U6.menu.opt.osstd=Smallest (-Os default)
+F4U6.menu.opt.oslto=Smallest (-Os) with LTO
+F4U6.menu.opt.oslto.build.flags.optimize=-Os -flto
+F4U6.menu.opt.o1std=Fast (-O1)
+F4U6.menu.opt.o1std.build.flags.optimize=-O1
+F4U6.menu.opt.o1lto=Fast (-O1) with LTO
+F4U6.menu.opt.o1lto.build.flags.optimize=-O1 -flto
+F4U6.menu.opt.o2std=Faster (-O2)
+F4U6.menu.opt.o2std.build.flags.optimize=-O2
+F4U6.menu.opt.o2lto=Faster (-O2) with LTO
+F4U6.menu.opt.o2lto.build.flags.optimize=-O2 -flto
+F4U6.menu.opt.o3std=Fastest (-O3)
+F4U6.menu.opt.o3std.build.flags.optimize=-O3
+F4U6.menu.opt.o3lto=Fastest (-O3) with LTO
+F4U6.menu.opt.o3lto.build.flags.optimize=-O3 -flto
+F4U6.menu.opt.ogstd=Debug (-Og)
+F4U6.menu.opt.ogstd.build.flags.optimize=-Og
+F4U6.menu.opt.o0std=No Optimization (-O0)
+F4U6.menu.opt.o0std.build.flags.optimize=-O0
+
+F4U6.menu.dbg.none=None
+F4U6.menu.dbg.enable_sym=Symbols Enabled (-g)
+F4U6.menu.dbg.enable_sym.build.flags.debug=-g -DNDEBUG
+F4U6.menu.dbg.enable_log=Core logs Enabled
+F4U6.menu.dbg.enable_log.build.flags.debug=
+F4U6.menu.dbg.enable_all=Core Logs and Symbols Enabled (-g)
+F4U6.menu.dbg.enable_all.build.flags.debug=-g
+
+F4U6.menu.rtlib.nano=Newlib Nano (default)
+F4U6.menu.rtlib.nanofp=Newlib Nano + Float Printf
+F4U6.menu.rtlib.nanofp.build.flags.ldspecs=--specs=nano.specs -u _printf_float
+F4U6.menu.rtlib.nanofs=Newlib Nano + Float Scanf
+F4U6.menu.rtlib.nanofs.build.flags.ldspecs=--specs=nano.specs -u _scanf_float
+F4U6.menu.rtlib.nanofps=Newlib Nano + Float Printf/Scanf
+F4U6.menu.rtlib.nanofps.build.flags.ldspecs=--specs=nano.specs -u _printf_float -u _scanf_float
+F4U6.menu.rtlib.full=Newlib Standard
+F4U6.menu.rtlib.full.build.flags.ldspecs=
+
+###############################
+# HK32F030MF4N6
+F4N6.name=HK32F030MF4N6
+
+F4N6.build.core=arduino
+F4N6.build.board=F4N6
+F4N6.build.mcu=cortex-m0
+F4N6.build.series=HK32F030M
+F4N6.build.st_extra_flags=-D{build.product_line} {build.xSerial} {build.xI2C} {build.xSPI} {build.RTOS} -DEXTCLK_VALUE={build.extclk}
+F4N6.build.flash_offset=0x0
+F4N6.upload.maximum_size=0
+F4N6.upload.maximum_data_size=0
+F4N6.openocd.target=stm32f0x
+F4N6.vid.0=0x0483
+F4N6.pid.0=0x5740
+
+# DEMO_F030M_8M board
+F4N6.menu.pnum.HK32F030MF4N6=HK32F030MF4N6 (HSI 8Mhz)
+F4N6.menu.pnum.HK32F030MF4N6.upload.maximum_size=16384
+F4N6.menu.pnum.HK32F030MF4N6.upload.maximum_data_size=2048
+F4N6.menu.pnum.HK32F030MF4N6.build.board=HK32F030MF4N6
+F4N6.menu.pnum.HK32F030MF4N6.build.clksrc=SYSCLK_SRC_HSI8M
+F4N6.menu.pnum.HK32F030MF4N6.build.product_line=hk32f030mf4p6
+F4N6.menu.pnum.HK32F030MF4N6.build.variant=HK32F030M/F4N6
+F4N6.menu.pnum.HK32F030MF4N6.build.variant_h=variant_HK32F030MF4N6.h
+F4N6.menu.pnum.HK32F030MF4N6.debug.svd_file={runtime.tools.HK32F030M_SVD.path}/svd/HK32F030M.svd
+
+# DEMO_F030M_16M board
+F4N6.menu.pnum.HK32F030MF4N6_16M=HK32F030MF4N6 (HSI 16Mhz)
+F4N6.menu.pnum.HK32F030MF4N6_16M.upload.maximum_size=16384
+F4N6.menu.pnum.HK32F030MF4N6_16M.upload.maximum_data_size=2048
+F4N6.menu.pnum.HK32F030MF4N6_16M.build.board=HK32F030MF4N6
+F4N6.menu.pnum.HK32F030MF4N6_16M.build.clksrc=SYSCLK_SRC_HSI16M
+F4N6.menu.pnum.HK32F030MF4N6_16M.build.product_line=hk32f030mf4p6
+F4N6.menu.pnum.HK32F030MF4N6_16M.build.variant=HK32F030M/F4N6
+F4N6.menu.pnum.HK32F030MF4N6_16M.build.variant_h=variant_HK32F030MF4N6.h
+F4N6.menu.pnum.HK32F030MF4N6_16M.debug.svd_file={runtime.tools.HK32F030M_SVD.path}/svd/HK32F030M.svd
+
+# DEMO_F030M_32M board
+F4N6.menu.pnum.HK32F030MF4N6_32M=HK32F030MF4N6 (HSI 32Mhz)
+F4N6.menu.pnum.HK32F030MF4N6_32M.upload.maximum_size=16384
+F4N6.menu.pnum.HK32F030MF4N6_32M.upload.maximum_data_size=2048
+F4N6.menu.pnum.HK32F030MF4N6_32M.build.board=HK32F030MF4N6
+F4N6.menu.pnum.HK32F030MF4N6_32M.build.clksrc=SYSCLK_SRC_HSI32M
+F4N6.menu.pnum.HK32F030MF4N6_32M.build.product_line=hk32f030mf4p6
+F4N6.menu.pnum.HK32F030MF4N6_32M.build.variant=HK32F030M/F4N6
+F4N6.menu.pnum.HK32F030MF4N6_32M.build.variant_h=variant_HK32F030MF4N6.h
+F4N6.menu.pnum.HK32F030MF4N6_32M.debug.svd_file={runtime.tools.HK32F030M_SVD.path}/svd/HK32F030M.svd
+
+# DEMO_F030M_LSI board
+F4N6.menu.pnum.HK32F030MF4N6_LSI=HK32F030MF4N6 (LSI internal RC oscillator)
+F4N6.menu.pnum.HK32F030MF4N6_LSI.upload.maximum_size=16384
+F4N6.menu.pnum.HK32F030MF4N6_LSI.upload.maximum_data_size=2048
+F4N6.menu.pnum.HK32F030MF4N6_LSI.build.board=HK32F030MF4N6
+F4N6.menu.pnum.HK32F030MF4N6_LSI.build.clksrc=SYSCLK_SRC_LSI
+F4N6.menu.pnum.HK32F030MF4N6_LSI.build.product_line=hk32f030mf4p6
+F4N6.menu.pnum.HK32F030MF4N6_LSI.build.variant=HK32F030M/F4N6
+F4N6.menu.pnum.HK32F030MF4N6_LSI.build.variant_h=variant_HK32F030MF4N6.h
+F4N6.menu.pnum.HK32F030MF4N6_LSI.debug.svd_file={runtime.tools.HK32F030M_SVD.path}/svd/HK32F030M.svd
+
+# DEMO_F030M_EXTKLK board
+F4N6.menu.pnum.HK32F030MF4N6_EXT=HK32F030MF4N6 (External clock)
+F4N6.menu.pnum.HK32F030MF4N6_EXT.upload.maximum_size=16384
+F4N6.menu.pnum.HK32F030MF4N6_EXT.upload.maximum_data_size=2048
+F4N6.menu.pnum.HK32F030MF4N6_EXT.build.board=HK32F030MF4N6
+F4N6.menu.pnum.HK32F030MF4N6_EXT.build.clksrc=SYSCLK_SCR_EXTCLK_IO
+F4N6.menu.pnum.HK32F030MF4N6_EXT.build.product_line=hk32f030mf4p6
+F4N6.menu.pnum.HK32F030MF4N6_EXT.build.variant=HK32F030M/F4N6
+F4N6.menu.pnum.HK32F030MF4N6_EXT.build.variant_h=variant_HK32F030MF4N6.h
+F4N6.menu.pnum.HK32F030MF4N6_EXT.debug.svd_file={runtime.tools.HK32F030M_SVD.path}/svd/HK32F030M.svd
+
+F4N6.menu.extclk.32mhz=32000Khz
+F4N6.menu.extclk.24mhz=24000Khz
+F4N6.menu.extclk.24mhz.build.extclk=24000000
+F4N6.menu.extclk.20mhz=20000Khz
+F4N6.menu.extclk.20mhz.build.extclk=20000000
+F4N6.menu.extclk.16mhz=16000Khz
+F4N6.menu.extclk.16mhz.build.extclk=16000000
+F4N6.menu.extclk.12mhz=120000Khz
+F4N6.menu.extclk.12mhz.build.extclk=12000000
+F4N6.menu.extclk.10mhz=10000Khz
+F4N6.menu.extclk.10mhz.build.extclk=10000000
+F4N6.menu.extclk.8mhz=8000Khz
+F4N6.menu.extclk.8mhz.build.extclk=8000000
+F4N6.menu.extclk.73728khz=73728Khz
+F4N6.menu.extclk.73728khz.build.extclk=73728000
+F4N6.menu.extclk.6mhz=6000Khz
+F4N6.menu.extclk.6mhz.build.extclk=6000000
+F4N6.menu.extclk.4mhz=4000Khz
+F4N6.menu.extclk.4mhz.build.extclk=4000000
+F4N6.menu.extclk.36864khz=36864Khz
+F4N6.menu.extclk.36864khz.build.extclk=36864000
+F4N6.menu.extclk.2mhz=2000Khz
+F4N6.menu.extclk.2mhz.build.extclk=2000000
+F4N6.menu.extclk.1mhz=4000Khz
+F4N6.menu.extclk.1mhz.build.extclk=1000000
+
+# Upload menu
+F4N6.menu.upload_method.OpenOCDSTLink=OpenOCD STLink (SWD)
+F4N6.menu.upload_method.OpenOCDSTLink.upload.protocol=stlink
+F4N6.menu.upload_method.OpenOCDSTLink.upload.tool=openocd_upload
+
+F4N6.menu.upload_method.OpenOCDDapLink=OpenOCD DapLink (SWD)
+F4N6.menu.upload_method.OpenOCDDapLink.upload.protocol=cmsis-dap
+F4N6.menu.upload_method.OpenOCDDapLink.upload.tool=openocd_upload
+F4N6.menu.upload_method.OpenOCDDapLink.debug.server.openocd.scripts.0=interface/cmsis-dap.cfg
+F4N6.menu.upload_method.OpenOCDDapLink.debug.server.openocd.scripts.1={runtime.platform.path}/debugger/select_swd.cfg
+
+F4N6.menu.xserial.generic=Enabled (generic 'Serial')
+F4N6.menu.xserial.none=Enabled (no generic 'Serial')
+F4N6.menu.xserial.none.build.xSerial=-DHAL_UART_MODULE_ENABLED -DHWSERIAL_NONE
+F4N6.menu.xserial.disabled=Disabled (no Serial support)
+F4N6.menu.xserial.disabled.build.xSerial=
+
+F4N6.menu.xi2c.generic=Enabled (generic 'I2C')
+F4N6.menu.xi2c.none=Enabled (no generic 'I2C')
+F4N6.menu.xi2c.none.build.xi2c=-DHAL_I2C_MODULE_ENABLED -DI2C_NONE
+F4N6.menu.xi2c.disabled=Disabled (no I2C support)
+F4N6.menu.xi2c.disabled.build.xI2C=
+
+F4N6.menu.xspi.generic=Enabled (generic 'SPI')
+F4N6.menu.xspi.none=Enabled (no generic 'SPI')
+F4N6.menu.xspi.none.build.xspi=-DHAL_SPI_MODULE_ENABLED -DSPI_NONE
+F4N6.menu.xspi.disabled=Disabled (no SPI support)
+F4N6.menu.xspi.disabled.build.xSPI=
+
+F4N6.menu.rtos.enabled=Enabled
+F4N6.menu.rtos.disabled=Disabled
+F4N6.menu.rtos.disabled.build.RTOS=
+
+F4N6.menu.opt.osstd=Smallest (-Os default)
+F4N6.menu.opt.oslto=Smallest (-Os) with LTO
+F4N6.menu.opt.oslto.build.flags.optimize=-Os -flto
+F4N6.menu.opt.o1std=Fast (-O1)
+F4N6.menu.opt.o1std.build.flags.optimize=-O1
+F4N6.menu.opt.o1lto=Fast (-O1) with LTO
+F4N6.menu.opt.o1lto.build.flags.optimize=-O1 -flto
+F4N6.menu.opt.o2std=Faster (-O2)
+F4N6.menu.opt.o2std.build.flags.optimize=-O2
+F4N6.menu.opt.o2lto=Faster (-O2) with LTO
+F4N6.menu.opt.o2lto.build.flags.optimize=-O2 -flto
+F4N6.menu.opt.o3std=Fastest (-O3)
+F4N6.menu.opt.o3std.build.flags.optimize=-O3
+F4N6.menu.opt.o3lto=Fastest (-O3) with LTO
+F4N6.menu.opt.o3lto.build.flags.optimize=-O3 -flto
+F4N6.menu.opt.ogstd=Debug (-Og)
+F4N6.menu.opt.ogstd.build.flags.optimize=-Og
+F4N6.menu.opt.o0std=No Optimization (-O0)
+F4N6.menu.opt.o0std.build.flags.optimize=-O0
+
+F4N6.menu.dbg.none=None
+F4N6.menu.dbg.enable_sym=Symbols Enabled (-g)
+F4N6.menu.dbg.enable_sym.build.flags.debug=-g -DNDEBUG
+F4N6.menu.dbg.enable_log=Core logs Enabled
+F4N6.menu.dbg.enable_log.build.flags.debug=
+F4N6.menu.dbg.enable_all=Core Logs and Symbols Enabled (-g)
+F4N6.menu.dbg.enable_all.build.flags.debug=-g
+
+F4N6.menu.rtlib.nano=Newlib Nano (default)
+F4N6.menu.rtlib.nanofp=Newlib Nano + Float Printf
+F4N6.menu.rtlib.nanofp.build.flags.ldspecs=--specs=nano.specs -u _printf_float
+F4N6.menu.rtlib.nanofs=Newlib Nano + Float Scanf
+F4N6.menu.rtlib.nanofs.build.flags.ldspecs=--specs=nano.specs -u _scanf_float
+F4N6.menu.rtlib.nanofps=Newlib Nano + Float Printf/Scanf
+F4N6.menu.rtlib.nanofps.build.flags.ldspecs=--specs=nano.specs -u _printf_float -u _scanf_float
+F4N6.menu.rtlib.full=Newlib Standard
+F4N6.menu.rtlib.full.build.flags.ldspecs=
+
+

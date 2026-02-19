@@ -1,0 +1,6 @@
+{
+    "name": "framework-hk32f030m",
+    "description": "Arduino Wiring-based Framework (HK32F030M Core)",
+    "version": "0.1.0",
+    "url": "https://github.com/dev-board-tech/ArduinoHK"
+}

@@ -1,0 +1,4 @@
+commit 8c31e50ca9b7b91ebf63fe252dcee0cbbd9a5299
+Author: Iulian Gheorghiu <morgoth.creator@gmail.com>
+
+    chore: bump release version to 0.1.0
