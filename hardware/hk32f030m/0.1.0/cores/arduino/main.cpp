@@ -20,34 +20,51 @@
 #define ARDUINO_MAIN
 #include "Arduino.h"
 
+#include <src/hk32f030m_misc.h>
+#ifndef RTOS_ENABLED
+#include <hk32f030m_it.c>
+#endif
+
+#define NVIC_SYSTICK_CLK_BIT				( 1UL << 2UL )
+#define NVIC_SYSTICK_CLK_BIT_CONFIG			( NVIC_SYSTICK_CLK_BIT )//( 0 )
+#define NVIC_SYSTICK_INT_BIT				( 1UL << 1UL )
+#define NVIC_SYSTICK_ENABLE_BIT				( 1UL << 0UL )
+
+void NVIC_Configuration(void) {
+  NVIC_InitTypeDef NVIC_InitStructure;
+  NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
+  // value between 0 and 3
+  NVIC_InitStructure.NVIC_IRQChannelPriority = 1;
+  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  NVIC_Init(&NVIC_InitStructure);
+}
+
 // Force init to be called *first*, i.e. before static object allocation.
 // Otherwise, statically allocated objects that need HAL may fail.
-__attribute__((constructor(101))) void premain()
-{
-
-  // Required by FreeRTOS, see http://www.freertos.org/RTOS-Cortex-M3-M4.html
-#ifdef NVIC_PRIORITYGROUP_4
-  HAL_NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_4);
-#endif
-#if (__CORTEX_M == 0x07U)
-  // Defined in CMSIS core_cm7.h
-#ifndef I_CACHE_DISABLED
-  SCB_EnableICache();
-#endif
-#ifndef D_CACHE_DISABLED
-  SCB_EnableDCache();
-#endif
-#endif
-
+__attribute__((constructor(101))) void premain() {
   init();
 }
 
 /*
  * \brief Main entry point of Arduino application
  */
-int main(void)
-{
+int main(void) {
   initVariant();
+  
+#ifndef RTOS_ENABLED
+  NVIC_Configuration();
+  /*SysTick_CLKSourceConfig(SysTick_CLKSource_HCLK_Div8);
+  SysTick->LOAD = 1000;               // Set Reload Value
+  SysTick->VAL = 0x00;                        // Set Current Value to 0
+  SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk;   // Start counter*/
+  /* Stop and reset the SysTick. */
+  /*SysTick->CTRL = 0UL;
+  SysTick->VAL = 0UL;
+  // Configure SysTick to interrupt at the requested rate. 
+  SysTick->LOAD = ( SystemCoreClock / 1000 ) - 1UL;
+  SysTick->CTRL = ( NVIC_SYSTICK_CLK_BIT_CONFIG | NVIC_SYSTICK_INT_BIT | NVIC_SYSTICK_ENABLE_BIT );*/
+  SysTick_Config(SystemCoreClock / 1000);
+#endif
 
   setup();
 

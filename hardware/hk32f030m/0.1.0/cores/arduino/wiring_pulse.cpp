@@ -31,8 +31,8 @@ uint32_t pulseIn(uint32_t pin, uint32_t state, uint32_t timeout)
   // Cache the port and bit of the pin in order to speed up the
   // pulse width measuring loop and achieve finer resolution.
   // Calling digitalRead() instead yields much coarser resolution.
-  uint32_t bit = digitalPinToBitMask(pin);
-  __IO uint32_t *portIn = portInputRegister(digitalPinToPort(pin));
+  uint32_t bit = 0;//digitalPinToBitMask(pin);
+  __IO uint32_t *portIn = NULL;//portInputRegister(digitalPinToPort(pin));
   uint32_t stateMask = (state ? bit : 0);
   uint32_t startMicros = micros();
 

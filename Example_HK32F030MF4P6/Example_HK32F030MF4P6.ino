@@ -1,51 +1,17 @@
 #include <Arduino.h>
 
-// LED1: PD1
-#define LED1_GPIO_PORT        GPIOD
-#define LED1_GPIO_CLK         RCC_AHBPeriph_GPIOD
-#define LED1_GPIO_PIN         GPIO_Pin_1
-// LED2: PC7
-#define LED2_GPIO_PORT        GPIOC
-#define LED2_GPIO_CLK         RCC_AHBPeriph_GPIOC
-#define LED2_GPIO_PIN         GPIO_Pin_7
-// LED3: PA2
-#define LED3_GPIO_PORT        GPIOA
-#define LED3_GPIO_CLK         RCC_AHBPeriph_GPIOA
-#define LED3_GPIO_PIN         GPIO_Pin_2
+#define LED1         PIN_D1
+#define LED2         PIN_C7
+#define LED3         PIN_A2
+#define LED4         PIN_A3
 
-static uint32_t notInit __attribute__ ((section (".noinit")));
+static uint32_t notInit __attribute__ ((section (".noinit")));// Purposedly uninitialized variable.
 
-void LED_GPIO_Config(void)
-{
-  GPIO_InitTypeDef GPIO_InitStructure;
-  // Enable AHB Clock
-  RCC_AHBPeriphClockCmd(LED1_GPIO_CLK | LED2_GPIO_CLK | LED3_GPIO_CLK, ENABLE);
-
-  // LED1: Output, push-pull, speed 10Mhz
-  GPIO_InitStructure.GPIO_Pin = LED1_GPIO_PIN;
-  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
-  GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_10MHz;
-  GPIO_Init(LED1_GPIO_PORT, &GPIO_InitStructure);
-
-  // LED2
-  GPIO_InitStructure.GPIO_Pin = LED2_GPIO_PIN;
-  GPIO_Init(LED2_GPIO_PORT, &GPIO_InitStructure);
-
-  // LED3
-  GPIO_InitStructure.GPIO_Pin = LED3_GPIO_PIN;
-  GPIO_Init(LED3_GPIO_PORT, &GPIO_InitStructure);
-
-  // Turn off all
-  GPIO_ResetBits(LED1_GPIO_PORT, LED1_GPIO_PIN);
-  GPIO_ResetBits(LED2_GPIO_PORT, LED2_GPIO_PIN);
-  GPIO_ResetBits(LED3_GPIO_PORT, LED3_GPIO_PIN);
-}
-
+#ifdef RTOS_ENABLED
 void task1(void *pvParameters) {
   (void)(pvParameters); // Suppress "unused parameter" warning
   while (1) {
-    GPIO_Toggle(LED1_GPIO_PORT, LED1_GPIO_PIN);
+    digitalToggle(LED1);
     vTaskDelay(500);
   }
 }
@@ -53,7 +19,7 @@ void task1(void *pvParameters) {
 void task2(void *pvParameters) {
   (void)(pvParameters);
   while (1) {
-    GPIO_Toggle(LED2_GPIO_PORT, LED2_GPIO_PIN);
+    digitalToggle(LED2);
     vTaskDelay(300);
   }
 }
@@ -61,14 +27,24 @@ void task2(void *pvParameters) {
 void task3(void *pvParameters) {
   (void)(pvParameters);
   while (1) {
-    GPIO_Toggle(LED3_GPIO_PORT, LED3_GPIO_PIN);
+    digitalToggle(LED3);
     vTaskDelay(800);
   }
 }
+#endif
 
 void setup() {
-  Serial.begin(115200);//Not implemented yet
-  LED_GPIO_Config();
+  Serial.begin(115200);// Implemented ( NOT TESTED YET )
+  Serial.println("Powered UP!");
+  pinMode(LED1, OUTPUT);
+  pinMode(LED2, OUTPUT);
+  pinMode(LED3, OUTPUT);
+  pinMode(LED4, OUTPUT);
+  digitalWrite(LED1, LOW);
+  digitalWrite(LED2, LOW);
+  digitalWrite(LED3, LOW);
+  digitalWrite(LED4, LOW);
+#ifdef RTOS_ENABLED
   BaseType_t xReturned;
   xReturned = xTaskCreate(
       task1,                    // Task function point
@@ -92,10 +68,11 @@ void setup() {
   }
 
   vTaskStartScheduler();
+#endif
 }
 
 void loop() {
-  delay(500);//Not implemented yet
+  delay(1000);// Implemented both, baremetal and RTOS ( NOT TESTED YET )
   notInit++;
-  GPIO_Write(LED1_GPIO_PORT, notInit);
+  digitalWrite(LED4, notInit);
 }

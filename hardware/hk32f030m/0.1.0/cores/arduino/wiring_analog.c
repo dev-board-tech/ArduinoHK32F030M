@@ -212,7 +212,7 @@ void analogWrite(uint32_t ulPin, uint32_t ulValue)
 #if defined(HAL_DAC_MODULE_ENABLED) && !defined(HAL_DAC_MODULE_ONLY)
   uint8_t do_init = 0;
 #endif
-  uint32_t p = digitalPinToPinName(ulPin);
+  uint32_t p = 0;//digitalPinToPinName(ulPin);
   if (p != NC) {
 #if defined(HAL_DAC_MODULE_ENABLED) && !defined(HAL_DAC_MODULE_ONLY)
     if (pin_in_pinmap(p, PinMap_DAC)) {

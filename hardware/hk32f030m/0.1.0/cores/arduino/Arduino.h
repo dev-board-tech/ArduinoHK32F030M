@@ -41,6 +41,7 @@
 #include "FreeRTOS.h"
 #endif
 
+#define __IO						volatile
 /* sketch */
 
 #ifdef __cplusplus

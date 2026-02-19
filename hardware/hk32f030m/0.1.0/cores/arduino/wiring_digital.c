@@ -17,19 +17,19 @@
 */
 
 #include "Arduino.h"
+#include <src/hk32f030m_gpio.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 
-extern uint32_t g_anOutputPinConfigured[MAX_NB_PORT];
+//extern uint32_t g_anOutputPinConfigured[MAX_NB_PORT];
 
-void pinMode(uint32_t ulPin, uint32_t ulMode)
-{
-  uint32_t p = digitalPinToPinName(ulPin);
-
-  if (p != NC) {
+void pinMode(uint32_t ulPin, uint32_t ulMode) {
+  //uint32_t p = 0;//digitalPinToPinName(ulPin);
+  if (ulPin < NUM_DIGITAL_PINS) {
+#if 0
     // If the pin that support PWM or DAC output, we need to turn it off
 #if (defined(HAL_DAC_MODULE_ENABLED) && !defined(HAL_DAC_MODULE_ONLY)) ||\
     (defined(HAL_TIM_MODULE_ENABLED) && !defined(HAL_TIM_MODULE_ONLY))
@@ -49,54 +49,68 @@ void pinMode(uint32_t ulPin, uint32_t ulMode)
       }
     }
 #endif
-#if 0
+#endif
+	GPIO_InitTypeDef GPIO_InitStructure;
+	// Enable AHB Clock
+	RCC_AHBPeriphClockCmd(digitalPinToClock(ulPin), ENABLE);
+	GPIO_InitStructure.GPIO_Pin = digitalPinToPin(ulPin);
+	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_10MHz;
+	GPIO_InitStructure.GPIO_Schmit = GPIO_Schmit_Disable;
+
     switch (ulMode) {
       case INPUT: /* INPUT_FLOATING */
-        pin_function(p, STM_PIN_DATA(STM_MODE_INPUT, GPIO_NOPULL, 0));
+		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
+		GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+		GPIO_InitStructure.GPIO_Schmit = GPIO_Schmit_Enable;
         break;
       case INPUT_PULLUP:
-        pin_function(p, STM_PIN_DATA(STM_MODE_INPUT, GPIO_PULLUP, 0));
+		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
+		GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+		GPIO_InitStructure.GPIO_Schmit = GPIO_Schmit_Enable;
         break;
       case INPUT_PULLDOWN:
-        pin_function(p, STM_PIN_DATA(STM_MODE_INPUT, GPIO_PULLDOWN, 0));
+		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
+		GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_DOWN;
+		GPIO_InitStructure.GPIO_Schmit = GPIO_Schmit_Enable;
         break;
       case INPUT_ANALOG:
-        pin_function(p, STM_PIN_DATA(STM_MODE_ANALOG, GPIO_NOPULL, 0));
+		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AN;
+		GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+  		GPIO_PinAFConfig(digitalPinToPort(ulPin), digitalPinToSource(ulPin), GPIO_AF_7);
         break;
       case OUTPUT:
-        pin_function(p, STM_PIN_DATA(STM_MODE_OUTPUT_PP, GPIO_NOPULL, 0));
+		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+		GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
         break;
       case OUTPUT_OPEN_DRAIN:
-        pin_function(p, STM_PIN_DATA(STM_MODE_OUTPUT_OD, GPIO_NOPULL, 0));
+		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+		GPIO_InitStructure.GPIO_OType = GPIO_OType_OD;
+		GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
         break;
       default:
-        Error_Handler();
-        break;
+        return;
     }
-#endif
+	GPIO_Init(digitalPinToPort(ulPin), &GPIO_InitStructure);
   }
 }
 
-void digitalWrite(uint32_t ulPin, uint32_t ulVal)
-{
-  uint32_t p = digitalPinToPinName(ulPin);
-  if (p != NC) {
-    //digitalWriteFast(p, ulVal);
+void digitalWrite(uint32_t ulPin, uint32_t ulVal) {
+  if (ulPin < NUM_DIGITAL_PINS) {
+    GPIO_WriteBit(digitalPinToPort(ulPin), digitalPinToPin(ulPin), ulVal);
   }
 }
 
-int digitalRead(uint32_t ulPin)
-{
-  uint32_t p = digitalPinToPinName(ulPin);
-
-  return 0;//(p == NC) ? 0 : digitalReadFast(p);
+int digitalRead(uint32_t ulPin) {
+  if (ulPin < NUM_DIGITAL_PINS) {
+  	return GPIO_ReadInputDataBit(digitalPinToPort(ulPin), digitalPinToPin(ulPin));
+  }
+  return 0;
 }
 
-void digitalToggle(uint32_t ulPin)
-{
-  uint32_t p = digitalPinToPinName(ulPin);
-  if (p != NC) {
-    //digitalToggleFast(digitalPinToPinName(ulPin));
+void digitalToggle(uint32_t ulPin) {
+  if (ulPin < NUM_DIGITAL_PINS) {
+    GPIO_Toggle(digitalPinToPort(ulPin), digitalPinToPin(ulPin));
   }
 }
 

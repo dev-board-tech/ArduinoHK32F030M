@@ -18,35 +18,103 @@ extern "C" {
 
 #include <stdint.h>
 
+#include <hk32f030m.h>
+
 // Pin number
 // This array allows to wrap Arduino pin number(Dx or x)
 // to STM32 PinName (PX_n)
-const uint32_t digitalPin[] = {
-	PA1,
-	PA2,
-	PA3, //  - TX
-	PB4, //  - RX
-	PB5, //  - SS - SWCLK
-	PD1,
-	PD2, //  - MOSI
-	PD3, //  - SCK
-	PD4,
-	PD5, //  - LED - SWDIO
-	PD6, //  - MISO
-	PC3,	
-	PC4,
-	PC5, //  - SDA
-	PC6, //  - SCL
-	PC7
+const uint8_t digitalPin[] = {
+	PIN_A1,
+	PIN_A2,
+	PIN_A3, //  - TX
+	PIN_B4, //  - RX
+	PIN_B5, //  - SS - SWCLK
+	PIN_D1,
+	PIN_D2, //  - MOSI
+	PIN_D3, //  - SCK
+	PIN_D4,
+	PIN_D5, //  - LED - SWDIO
+	PIN_D6, //  - MISO
+	PIN_C3,	
+	PIN_C4,
+	PIN_C5, //  - SDA
+	PIN_C6, //  - SCL
+	PIN_C7
+};
+
+const void *digitalPort[] = {
+	GPIOA,
+	GPIOA,
+	GPIOA, //  - TX
+	GPIOB, //  - RX
+	GPIOB, //  - SS - SWCLK
+	GPIOD,
+	GPIOD, //  - MOSI
+	GPIOD, //  - SCK
+	GPIOD,
+	GPIOD, //  - LED - SWDIO
+	GPIOD, //  - MISO
+	GPIOC,	
+	GPIOC,
+	GPIOC, //  - SDA
+	GPIOC, //  - SCL
+	GPIOC
+};
+
+const uint32_t digitalClock[] = {
+	RCC_AHBPeriph_GPIOA,
+	RCC_AHBPeriph_GPIOA,
+	RCC_AHBPeriph_GPIOA, //  - TX
+	RCC_AHBPeriph_GPIOB, //  - RX
+	RCC_AHBPeriph_GPIOB, //  - SS - SWCLK
+	RCC_AHBPeriph_GPIOD,
+	RCC_AHBPeriph_GPIOD, //  - MOSI
+	RCC_AHBPeriph_GPIOD, //  - SCK
+	RCC_AHBPeriph_GPIOD,
+	RCC_AHBPeriph_GPIOD, //  - LED - SWDIO
+	RCC_AHBPeriph_GPIOD, //  - MISO
+	RCC_AHBPeriph_GPIOC,	
+	RCC_AHBPeriph_GPIOC,
+	RCC_AHBPeriph_GPIOC, //  - SDA
+	RCC_AHBPeriph_GPIOC, //  - SCL
+	RCC_AHBPeriph_GPIOC
+};
+
+const uint8_t digitalSource[] = {
+	GPIO_PinSource1,
+	GPIO_PinSource2,
+	GPIO_PinSource3, //  - TX
+	GPIO_PinSource4, //  - RX
+	GPIO_PinSource5, //  - SS - SWCLK
+	GPIO_PinSource1,
+	GPIO_PinSource2, //  - MOSI
+	GPIO_PinSource3, //  - SCK
+	GPIO_PinSource4,
+	GPIO_PinSource5, //  - LED - SWDIO
+	GPIO_PinSource6, //  - MISO
+	GPIO_PinSource3,	
+	GPIO_PinSource4,
+	GPIO_PinSource5, //  - SDA
+	GPIO_PinSource6, //  - SCL
+	GPIO_PinSource7
 };
 
 // Analog (Ax) pin number array
-const uint32_t analogInputPin[] = {
-  PD5, //A0
-  PD6, //A1
-  PC4, //A2
-  PD3, //A3
-  PD2  //A4
+const uint8_t analogInputPin[] = {
+  PIN_D5, //A0
+  PIN_D6, //A1
+  PIN_C4, //A2
+  PIN_D3, //A3
+  PIN_D2  //A4
+};
+
+// Analog (Ax) pin number array
+const void *analogInputPort[] = {
+  GPIOD, //A0
+  GPIOD, //A1
+  GPIOC, //A2
+  GPIOD, //A3
+  GPIOD  //A4
 };
 
 #ifdef __cplusplus

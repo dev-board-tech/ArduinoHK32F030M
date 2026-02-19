@@ -21,28 +21,41 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-uint32_t millis(void)
-{
+#ifndef RTOS_ENABLED
+uint32_t SysTick_Cnt = 0;
+#endif
+uint32_t millis(void) {
   // ToDo: ensure no interrupts
-  return 0;//getCurrentMillis();
+#ifndef RTOS_ENABLED
+  return SysTick_Cnt;
+#else
+  return xTaskGetTickCount();
+#endif
 }
 
 // Interrupt-compatible version of micros
-uint32_t micros(void)
-{
-  return 0;//getCurrentMicros();
+uint32_t micros(void) {
+#ifndef RTOS_ENABLED
+  return (SysTick_Cnt * 1000) + SysTick->VAL;
+#else
+  return (xTaskGetTickCount() * 1000) + (SysTick->VAL / ( SystemCoreClock / 1000 ));
+#endif
 }
 
-void delay(uint32_t ms)
-{
+void delay(uint32_t ms) {
   if (ms != 0) {
-    uint32_t start = 0;//getCurrentMillis();
-    /*do {
+    uint32_t start = millis();
+    do {
       yield();
-    } while (getCurrentMillis() - start < ms);*/
+    } while (millis() - start < ms);
   }
 }
+
+#ifndef RTOS_ENABLED
+void SysTick_Handler(void) {
+	SysTick_Cnt++;
+}
+#endif
 
 #ifdef __cplusplus
 }

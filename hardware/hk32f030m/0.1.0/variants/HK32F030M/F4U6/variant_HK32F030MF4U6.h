@@ -13,60 +13,32 @@
 #pragma once
 
 /*----------------------------------------------------------------------------
- *        STM32 pins number
+ *        HK32F030M pins number
  *----------------------------------------------------------------------------*/
-// USB connector on the top, MCU side
-// Left Side
-/*#define PA0                     PIN_A0 //D0/A0
-#define PA1                     PIN_A1 //D1/A1
-#define PA2                     PIN_A2 //D2/A2 - TX
-#define PA3                     PIN_A3 //D3/A3 - RX
-#define PA4                     PIN_A4 //D4/A4 - LED
-// Right side
-#define PA5                     PIN_A5 //D5/A5 - SCK
-#define PA6                     PIN_A6 //D6/A6 - MISO
-#define PA7                     PIN_A7 //D7/A7 - MOSI
-#define PB1                     PIN_A8 //D8/A8 - SS
-#define PA9                     9      //D9    - SCL (TX UART header)
-#define PA10                    10     //D10   - SDA (RX UART header)
-#define PA13                    11     //D11   - SWDIO
-#define PA14                    12     //D12   - SWCLK
-// Boards without a crystal can use these pins as well:
-#define PF0                     13
-#define PF1                     14*/
 
+#define PIN_A1						0
+#define PIN_A2						1
+#define PIN_A3						2
+#define PIN_B4						3
+#define PIN_B5						4
+#define PIN_D1						5
+#define PIN_D2						6
+#define PIN_D3						7
+#define PIN_D4						8
+#define PIN_D5						9
+#define PIN_D6						10
+#define PIN_C3						11
+#define PIN_C4						12
+#define PIN_C5						13
+#define PIN_C6						14
+#define PIN_C7						15
 
-#define PA1						0
-#define PA2						1
-#define PA3						2
-#define PB4						3
-#define PB5						4
-#define PD1						5
-#define PD2						6
-#define PD3						7
-#define PD4						8
-#define PD5						9
-#define PD6						10
-#define PC3						11
-#define PC4						12
-#define PC5						13
-#define PC6						14
-#define PC7						15
-
-// Alternate pins number
-#define PA6_ALT1                (PA6 | ALT1)
-#define PA7_ALT1                (PA7 | ALT1)
-#define PA7_ALT2                (PA7 | ALT2)
-#define PA7_ALT3                (PA7 | ALT3)
-#define PB1_ALT1                (PB1 | ALT1)
-#define PB1_ALT2                (PB1 | ALT2)
-
-#define NUM_DIGITAL_PINS        15
-#define NUM_ANALOG_INPUTS       4
+#define NUM_DIGITAL_PINS        16
+#define NUM_ANALOG_INPUTS       5
 
 // On-board LED pin number
 #ifndef LED_BUILTIN
-  #define LED_BUILTIN           PD5
+  #define LED_BUILTIN           PIN_D5
 #endif
 #ifndef LED_GREEN
   #define LED_GREEN             LED_BUILTIN
@@ -79,15 +51,15 @@
 
 // SPI Definitions
 #ifndef PIN_SPI_SS
-  #define PIN_SPI_SS            PB5
+  #define PIN_SPI_SS            PIN_B5
 #endif
-#define PIN_SPI_MOSI            PD2
-#define PIN_SPI_MISO            PD6
-#define PIN_SPI_SCK             PD3
+#define PIN_SPI_MOSI            PIN_D2
+#define PIN_SPI_MISO            PIN_D6
+#define PIN_SPI_SCK             PIN_D3
 
 // I2C Definitions
-#define PIN_WIRE_SDA            PC5
-#define PIN_WIRE_SCL            PC6
+#define PIN_WIRE_SDA            PIN_C5
+#define PIN_WIRE_SCL            PIN_C6
 
 // Timer Definitions
 #ifndef TIMER_TONE
@@ -105,10 +77,10 @@
 // Default pin used for 'Serial' instance
 // Mandatory for Firmata
 #ifndef PIN_SERIAL_RX
-  #define PIN_SERIAL_RX         PB4
+  #define PIN_SERIAL_RX         PIN_B4
 #endif
 #ifndef PIN_SERIAL_TX
-  #define PIN_SERIAL_TX         PA3
+  #define PIN_SERIAL_TX         PIN_A3
 #endif
 
 #ifdef ARDUINO_DEMO_F030F4_16M

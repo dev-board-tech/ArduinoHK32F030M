@@ -28,7 +28,8 @@
 
 #include "Stream.h"
 
-#define USART1			(void *)NULL
+#include <src/hk32f030m_gpio.h>
+#include <src/hk32f030m_usart.h>
 
 // Define constants and variables for buffering incoming serial data.  We're
 // using a ring buffer (I think), in which head is the index of the location
@@ -51,6 +52,10 @@
   typedef uint16_t rx_buffer_index_t;
 #else
   typedef uint8_t rx_buffer_index_t;
+#endif
+
+#ifndef TX_TIMEOUT
+#define TX_TIMEOUT  1000
 #endif
 
 // A bool should be enough for this
@@ -92,6 +97,25 @@ typedef enum {
 #define SERIAL_7O2 0x3C
 #define SERIAL_8O2 0x3E
 
+/* Exported types ------------------------------------------------------------*/
+typedef struct serial_s serial_t;
+
+struct serial_s {
+  uint32_t pin_tx;
+  uint32_t pin_rx;
+  uint32_t pin_rts;
+  uint32_t pin_cts;
+  uint8_t index;
+  uint8_t recv;
+  uint8_t *rx_buff;
+  uint8_t *tx_buff;
+  uint16_t rx_tail;
+  uint16_t tx_head;
+  volatile uint16_t rx_head;
+  volatile uint16_t tx_tail;
+  size_t tx_size;
+};
+
 class HardwareSerial : public Stream {
   protected:
     // Has any byte been written to the UART since begin()
@@ -106,11 +130,9 @@ class HardwareSerial : public Stream {
     unsigned char _rx_buffer[SERIAL_RX_BUFFER_SIZE];
     unsigned char _tx_buffer[SERIAL_TX_BUFFER_SIZE];
 
-    //serial_t _serial;
-
   public:
     HardwareSerial(uint32_t _rx, uint32_t _tx, uint32_t _rts = NUM_DIGITAL_PINS, uint32_t _cts = NUM_DIGITAL_PINS);
-    HardwareSerial(void *peripheral, HalfDuplexMode_t halfDuplex = HALF_DUPLEX_DISABLED);
+    HardwareSerial(HalfDuplexMode_t halfDuplex = HALF_DUPLEX_DISABLED);
     HardwareSerial(uint32_t _rxtx);
     void begin(unsigned long baud)
     {
@@ -168,12 +190,6 @@ class HardwareSerial : public Stream {
     void setTxInvert(void);
     void setDataInvert(void);
 
-    friend class STM32LowPower;
-
-    // Interrupt handlers
-    //static void _rx_complete_irq(serial_t *obj);
-    //static int _tx_complete_irq(serial_t *obj);
-
 #if defined(HAL_UART_MODULE_ENABLED) && !defined(HAL_UART_MODULE_ONLY)
     // Could be used to mix Arduino API and STM32Cube HAL API (ex: DMA). Use at your own risk.
     /*UART_HandleTypeDef *getHandle(void)
@@ -188,7 +204,6 @@ class HardwareSerial : public Stream {
     uint8_t _config;
     unsigned long _baud;
     void init(uint32_t _rx, uint32_t _tx, uint32_t _rts = -1, uint32_t _cts = -1);
-    void configForLowPower(void);
 };
 
 #if defined(USART1)
