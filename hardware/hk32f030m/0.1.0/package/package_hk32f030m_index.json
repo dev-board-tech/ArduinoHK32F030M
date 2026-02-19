@@ -4,7 +4,7 @@
       "name": "ArduinoHK",
       "maintainer": "Iulian Gheorghiu",
       "websiteUrl": "https://github.com/dev-board-tech/",
-      "Url": "https://github.com/dev-board-tech/ArduinoHK/BoardManagerFiles/main/package_hk32f030m_index.json",
+      "Url": "https://raw.githubusercontent.com/dev-board-tech/ArduinoHK32F030M/refs/heads/main/hardware/hk32f030m/0.1.0/package/package_hk32f030m_index.json",
       "email": "morgoth.creator@gmail.com",
       "platforms": [
         {
