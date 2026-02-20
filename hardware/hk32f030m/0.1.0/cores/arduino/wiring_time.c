@@ -43,12 +43,14 @@ uint32_t micros(void) {
 }
 
 void delay(uint32_t ms) {
+#ifndef RTOS_ENABLED
   if (ms != 0) {
     uint32_t start = millis();
     do {
       yield();
     } while (millis() - start < ms);
   }
+#endif
 }
 
 #ifndef RTOS_ENABLED

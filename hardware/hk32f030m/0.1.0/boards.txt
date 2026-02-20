@@ -123,27 +123,27 @@ J4M6.menu.upload_method.OpenOCDDapLink.upload.tool=openocd_upload
 J4M6.menu.upload_method.OpenOCDDapLink.debug.server.openocd.scripts.0=interface/cmsis-dap.cfg
 J4M6.menu.upload_method.OpenOCDDapLink.debug.server.openocd.scripts.1={runtime.platform.path}/debugger/select_swd.cfg
 
-J4M6.menu.xserial.generic=Enabled (generic 'Serial')
-J4M6.menu.xserial.none=Enabled (no generic 'Serial')
-J4M6.menu.xserial.none.build.xSerial=-DHAL_UART_MODULE_ENABLED -DHWSERIAL_NONE
 J4M6.menu.xserial.disabled=Disabled (no Serial support)
 J4M6.menu.xserial.disabled.build.xSerial=
+J4M6.menu.xserial.enabled=Enabled (generic 'Serial')
+J4M6.menu.xserial.enabled.build.xSerial=-DHAL_UART_MODULE_ENABLED
+J4M6.menu.xserial.none=Enabled (no generic 'Serial')
+J4M6.menu.xserial.none.build.xSerial=-DHAL_UART_MODULE_ENABLED -DHWSERIAL_NONE
 
-J4M6.menu.xi2c.generic=Enabled (generic 'I2C')
-J4M6.menu.xi2c.none=Enabled (no generic 'I2C')
-J4M6.menu.xi2c.none.build.xi2c=-DHAL_I2C_MODULE_ENABLED -DI2C_NONE
 J4M6.menu.xi2c.disabled=Disabled (no I2C support)
 J4M6.menu.xi2c.disabled.build.xI2C=
+J4M6.menu.xi2c.enabled=Enabled (generic 'I2C')
+J4M6.menu.xi2c.enabled.build.xI2C=-DHAL_I2C_MODULE_ENABLED
 
-J4M6.menu.xspi.generic=Enabled (generic 'SPI')
-J4M6.menu.xspi.none=Enabled (no generic 'SPI')
-J4M6.menu.xspi.none.build.xspi=-DHAL_SPI_MODULE_ENABLED -DSPI_NONE
 J4M6.menu.xspi.disabled=Disabled (no SPI support)
 J4M6.menu.xspi.disabled.build.xSPI=
+J4M6.menu.xspi.enabled=Enabled (generic 'SPI')
+J4M6.menu.xspi.enabled.build.xSPI=-DHAL_SPI_MODULE_ENABLED
 
-J4M6.menu.rtos.enabled=Enabled
 J4M6.menu.rtos.disabled=Disabled
 J4M6.menu.rtos.disabled.build.RTOS=
+J4M6.menu.rtos.enabled=Enabled
+J4M6.menu.rtos.enabled.build.RTOS=-DRTOS_ENABLED
 
 J4M6.menu.opt.osstd=Smallest (-Os default)
 J4M6.menu.opt.oslto=Smallest (-Os) with LTO
@@ -291,27 +291,27 @@ D4P6.menu.upload_method.OpenOCDDapLink.upload.tool=openocd_upload
 D4P6.menu.upload_method.OpenOCDDapLink.debug.server.openocd.scripts.0=interface/cmsis-dap.cfg
 D4P6.menu.upload_method.OpenOCDDapLink.debug.server.openocd.scripts.1={runtime.platform.path}/debugger/select_swd.cfg
 
-D4P6.menu.xserial.generic=Enabled (generic 'Serial')
-D4P6.menu.xserial.none=Enabled (no generic 'Serial')
-D4P6.menu.xserial.none.build.xSerial=-DHAL_UART_MODULE_ENABLED -DHWSERIAL_NONE
 D4P6.menu.xserial.disabled=Disabled (no Serial support)
 D4P6.menu.xserial.disabled.build.xSerial=
+D4P6.menu.xserial.enabled=Enabled (generic 'Serial')
+D4P6.menu.xserial.enabled.build.xSerial=-DHAL_UART_MODULE_ENABLED
+D4P6.menu.xserial.none=Enabled (no generic 'Serial')
+D4P6.menu.xserial.none.build.xSerial=-DHAL_UART_MODULE_ENABLED -DHWSERIAL_NONE
 
-D4P6.menu.xi2c.generic=Enabled (generic 'I2C')
-D4P6.menu.xi2c.none=Enabled (no generic 'I2C')
-D4P6.menu.xi2c.none.build.xi2c=-DHAL_I2C_MODULE_ENABLED -DI2C_NONE
 D4P6.menu.xi2c.disabled=Disabled (no I2C support)
 D4P6.menu.xi2c.disabled.build.xI2C=
+D4P6.menu.xi2c.enabled=Enabled (generic 'I2C')
+D4P6.menu.xi2c.enabled.build.xI2C=-DHAL_I2C_MODULE_ENABLED
 
-D4P6.menu.xspi.generic=Enabled (generic 'SPI')
-D4P6.menu.xspi.none=Enabled (no generic 'SPI')
-D4P6.menu.xspi.none.build.xspi=-DHAL_SPI_MODULE_ENABLED -DSPI_NONE
 D4P6.menu.xspi.disabled=Disabled (no SPI support)
 D4P6.menu.xspi.disabled.build.xSPI=
+D4P6.menu.xspi.enabled=Enabled (generic 'SPI')
+D4P6.menu.xspi.enabled.build.xSPI=-DHAL_SPI_MODULE_ENABLED
 
-D4P6.menu.rtos.enabled=Enabled
 D4P6.menu.rtos.disabled=Disabled
 D4P6.menu.rtos.disabled.build.RTOS=
+D4P6.menu.rtos.enabled=Enabled
+D4P6.menu.rtos.enabled.build.RTOS=-DRTOS_ENABLED
 
 D4P6.menu.opt.osstd=Smallest (-Os default)
 D4P6.menu.opt.oslto=Smallest (-Os) with LTO
@@ -459,27 +459,27 @@ F4P6.menu.upload_method.OpenOCDDapLink.upload.tool=openocd_upload
 F4P6.menu.upload_method.OpenOCDDapLink.debug.server.openocd.scripts.0=interface/cmsis-dap.cfg
 F4P6.menu.upload_method.OpenOCDDapLink.debug.server.openocd.scripts.1={runtime.platform.path}/debugger/select_swd.cfg
 
-F4P6.menu.xserial.generic=Enabled (generic 'Serial')
-F4P6.menu.xserial.none=Enabled (no generic 'Serial')
-F4P6.menu.xserial.none.build.xSerial=-DHAL_UART_MODULE_ENABLED -DHWSERIAL_NONE
 F4P6.menu.xserial.disabled=Disabled (no Serial support)
 F4P6.menu.xserial.disabled.build.xSerial=
+F4P6.menu.xserial.enabled=Enabled (generic 'Serial')
+F4P6.menu.xserial.enabled.build.xSerial=-DHAL_UART_MODULE_ENABLED
+F4P6.menu.xserial.none=Enabled (no generic 'Serial')
+F4P6.menu.xserial.none.build.xSerial=-DHAL_UART_MODULE_ENABLED -DHWSERIAL_NONE
 
-F4P6.menu.xi2c.generic=Enabled (generic 'I2C')
-F4P6.menu.xi2c.none=Enabled (no generic 'I2C')
-F4P6.menu.xi2c.none.build.xi2c=-DHAL_I2C_MODULE_ENABLED -DI2C_NONE
 F4P6.menu.xi2c.disabled=Disabled (no I2C support)
 F4P6.menu.xi2c.disabled.build.xI2C=
+F4P6.menu.xi2c.enabled=Enabled (generic 'I2C')
+F4P6.menu.xi2c.enabled.build.xI2C=-DHAL_I2C_MODULE_ENABLED
 
-F4P6.menu.xspi.generic=Enabled (generic 'SPI')
-F4P6.menu.xspi.none=Enabled (no generic 'SPI')
-F4P6.menu.xspi.none.build.xspi=-DHAL_SPI_MODULE_ENABLED -DSPI_NONE
 F4P6.menu.xspi.disabled=Disabled (no SPI support)
 F4P6.menu.xspi.disabled.build.xSPI=
+F4P6.menu.xspi.enabled=Enabled (generic 'SPI')
+F4P6.menu.xspi.enabled.build.xSPI=-DHAL_SPI_MODULE_ENABLED
 
-F4P6.menu.rtos.enabled=Enabled
 F4P6.menu.rtos.disabled=Disabled
 F4P6.menu.rtos.disabled.build.RTOS=
+F4P6.menu.rtos.enabled=Enabled
+F4P6.menu.rtos.enabled.build.RTOS=-DRTOS_ENABLED
 
 F4P6.menu.opt.osstd=Smallest (-Os default)
 F4P6.menu.opt.oslto=Smallest (-Os) with LTO
@@ -627,27 +627,27 @@ F4U6.menu.upload_method.OpenOCDDapLink.upload.tool=openocd_upload
 F4U6.menu.upload_method.OpenOCDDapLink.debug.server.openocd.scripts.0=interface/cmsis-dap.cfg
 F4U6.menu.upload_method.OpenOCDDapLink.debug.server.openocd.scripts.1={runtime.platform.path}/debugger/select_swd.cfg
 
-F4U6.menu.xserial.generic=Enabled (generic 'Serial')
-F4U6.menu.xserial.none=Enabled (no generic 'Serial')
-F4U6.menu.xserial.none.build.xSerial=-DHAL_UART_MODULE_ENABLED -DHWSERIAL_NONE
 F4U6.menu.xserial.disabled=Disabled (no Serial support)
 F4U6.menu.xserial.disabled.build.xSerial=
+F4U6.menu.xserial.enabled=Enabled (generic 'Serial')
+F4U6.menu.xserial.enabled.build.xSerial=-DHAL_UART_MODULE_ENABLED
+F4U6.menu.xserial.none=Enabled (no generic 'Serial')
+F4U6.menu.xserial.none.build.xSerial=-DHAL_UART_MODULE_ENABLED -DHWSERIAL_NONE
 
-F4U6.menu.xi2c.generic=Enabled (generic 'I2C')
-F4U6.menu.xi2c.none=Enabled (no generic 'I2C')
-F4U6.menu.xi2c.none.build.xi2c=-DHAL_I2C_MODULE_ENABLED -DI2C_NONE
 F4U6.menu.xi2c.disabled=Disabled (no I2C support)
 F4U6.menu.xi2c.disabled.build.xI2C=
+F4U6.menu.xi2c.enabled=Enabled (generic 'I2C')
+F4U6.menu.xi2c.enabled.build.xI2C=-DHAL_I2C_MODULE_ENABLED
 
-F4U6.menu.xspi.generic=Enabled (generic 'SPI')
-F4U6.menu.xspi.none=Enabled (no generic 'SPI')
-F4U6.menu.xspi.none.build.xspi=-DHAL_SPI_MODULE_ENABLED -DSPI_NONE
 F4U6.menu.xspi.disabled=Disabled (no SPI support)
 F4U6.menu.xspi.disabled.build.xSPI=
+F4U6.menu.xspi.enabled=Enabled (generic 'SPI')
+F4U6.menu.xspi.enabled.build.xSPI=-DHAL_SPI_MODULE_ENABLED
 
-F4U6.menu.rtos.enabled=Enabled
 F4U6.menu.rtos.disabled=Disabled
 F4U6.menu.rtos.disabled.build.RTOS=
+F4U6.menu.rtos.enabled=Enabled
+F4U6.menu.rtos.enabled.build.RTOS=-DRTOS_ENABLED
 
 F4U6.menu.opt.osstd=Smallest (-Os default)
 F4U6.menu.opt.oslto=Smallest (-Os) with LTO
@@ -795,27 +795,27 @@ F4N6.menu.upload_method.OpenOCDDapLink.upload.tool=openocd_upload
 F4N6.menu.upload_method.OpenOCDDapLink.debug.server.openocd.scripts.0=interface/cmsis-dap.cfg
 F4N6.menu.upload_method.OpenOCDDapLink.debug.server.openocd.scripts.1={runtime.platform.path}/debugger/select_swd.cfg
 
-F4N6.menu.xserial.generic=Enabled (generic 'Serial')
-F4N6.menu.xserial.none=Enabled (no generic 'Serial')
-F4N6.menu.xserial.none.build.xSerial=-DHAL_UART_MODULE_ENABLED -DHWSERIAL_NONE
 F4N6.menu.xserial.disabled=Disabled (no Serial support)
 F4N6.menu.xserial.disabled.build.xSerial=
+F4N6.menu.xserial.enabled=Enabled (generic 'Serial')
+F4N6.menu.xserial.enabled.build.xSerial=-DHAL_UART_MODULE_ENABLED
+F4N6.menu.xserial.none=Enabled (no generic 'Serial')
+F4N6.menu.xserial.none.build.xSerial=-DHAL_UART_MODULE_ENABLED -DHWSERIAL_NONE
 
-F4N6.menu.xi2c.generic=Enabled (generic 'I2C')
-F4N6.menu.xi2c.none=Enabled (no generic 'I2C')
-F4N6.menu.xi2c.none.build.xi2c=-DHAL_I2C_MODULE_ENABLED -DI2C_NONE
 F4N6.menu.xi2c.disabled=Disabled (no I2C support)
 F4N6.menu.xi2c.disabled.build.xI2C=
+F4N6.menu.xi2c.enabled=Enabled (generic 'I2C')
+F4N6.menu.xi2c.enabled.build.xI2C=-DHAL_I2C_MODULE_ENABLED
 
-F4N6.menu.xspi.generic=Enabled (generic 'SPI')
-F4N6.menu.xspi.none=Enabled (no generic 'SPI')
-F4N6.menu.xspi.none.build.xspi=-DHAL_SPI_MODULE_ENABLED -DSPI_NONE
 F4N6.menu.xspi.disabled=Disabled (no SPI support)
 F4N6.menu.xspi.disabled.build.xSPI=
+F4N6.menu.xspi.enabled=Enabled (generic 'SPI')
+F4N6.menu.xspi.enabled.build.xSPI=-DHAL_SPI_MODULE_ENABLED
 
-F4N6.menu.rtos.enabled=Enabled
 F4N6.menu.rtos.disabled=Disabled
 F4N6.menu.rtos.disabled.build.RTOS=
+F4N6.menu.rtos.enabled=Enabled
+F4N6.menu.rtos.enabled.build.RTOS=-DRTOS_ENABLED
 
 F4N6.menu.opt.osstd=Smallest (-Os default)
 F4N6.menu.opt.oslto=Smallest (-Os) with LTO

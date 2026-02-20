@@ -15,23 +15,28 @@
   You should have received a copy of the GNU Lesser General Public
   License along with this library; if not, write to the Free Software
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-
-  Modified 23 November 2006 by David A. Mellis
-  Modified 28 September 2010 by Mark Sproul
-  Modified 14 August 2012 by Alarus
-  Modified 3 December 2013 by Matthijs Kooijman
 */
 
 #include <stdio.h>
 #include "Arduino.h"
 #include "HardwareSerial.h"
+#include <src/hk32f030m_misc.h>
 
 #if defined(HAL_UART_MODULE_ENABLED) && !defined(HAL_UART_MODULE_ONLY)
-    USART_InitTypeDef USART_InitStruct;
-	serial_t _serial;
+USART_InitTypeDef USART_InitStruct;
+serial_t _serial;
 
-	HardwareSerial Serial1;
-	void serialEvent1() __attribute__((weak));
+HardwareSerial Serial1;
+void serialEvent1() __attribute__((weak));
+
+static void NVIC_Configuration(void) {
+  NVIC_InitTypeDef NVIC_InitStructure;
+  NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
+  // value between 0 and 3
+  NVIC_InitStructure.NVIC_IRQChannelPriority = 1;
+  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  NVIC_Init(&NVIC_InitStructure);
+}
 
 // Constructors ////////////////////////////////////////////////////////////////
 HardwareSerial::HardwareSerial(uint32_t _rx, uint32_t _tx, uint32_t _rts, uint32_t _cts) {
@@ -82,6 +87,8 @@ void HardwareSerial::init(uint32_t _rx, uint32_t _tx, uint32_t _rts, uint32_t _c
   // PIN_SERIAL_TX
   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3;
   GPIO_Init(GPIOA, &GPIO_InitStructure);
+
+  NVIC_Configuration();
 }
 
 // Actual interrupt handlers //////////////////////////////////////////////////////////////
@@ -277,7 +284,6 @@ size_t HardwareSerial::write(const uint8_t *buffer, size_t size) {
 	USART_SendData(USART1, buffer[i]);	
   	while(USART_GetFlagStatus(USART1, USART_FLAG_TC)==RESET);
   }
-  /* Block till transmission is completed */
   return i;
 }
 
@@ -316,27 +322,28 @@ bool HardwareSerial::isHalfDuplex(void) const {
 }
 
 void HardwareSerial::enableHalfDuplexRx(void) {
-  //if (isHalfDuplex()) {
+  if (isHalfDuplex()) {
     // In half-duplex mode we have to wait for all TX characters to
     // be transmitted before we can receive data.
-    //flush();
-    //if (!_rx_enabled) {
-      //_rx_enabled = true;
+    flush();
+    if (!_rx_enabled) {
+      _rx_enabled = true;
       //uart_enable_rx(&_serial);
-    //}
-  //}
+      USART_HalfDuplexCmd(USART1, ENABLE);
+    }
+  }
 }
 
 void HardwareSerial::setRxInvert(void) {
-  //_rx_invert = true;
+  USART_InvPinCmd(USART1, USART_InvPin_Rx, ENABLE);
 }
 
 void HardwareSerial::setTxInvert(void) {
-  //_tx_invert = true;
+  USART_InvPinCmd(USART1, USART_InvPin_Tx, ENABLE);
 }
 
 void HardwareSerial::setDataInvert(void) {
-  //_data_invert = true;
+  USART_DataInvCmd(USART1, ENABLE);
 }
 
 #endif // HAL_UART_MODULE_ENABLED && !HAL_UART_MODULE_ONLY

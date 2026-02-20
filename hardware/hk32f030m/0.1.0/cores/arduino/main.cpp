@@ -30,15 +30,6 @@
 #define NVIC_SYSTICK_INT_BIT				( 1UL << 1UL )
 #define NVIC_SYSTICK_ENABLE_BIT				( 1UL << 0UL )
 
-void NVIC_Configuration(void) {
-  NVIC_InitTypeDef NVIC_InitStructure;
-  NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
-  // value between 0 and 3
-  NVIC_InitStructure.NVIC_IRQChannelPriority = 1;
-  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-  NVIC_Init(&NVIC_InitStructure);
-}
-
 // Force init to be called *first*, i.e. before static object allocation.
 // Otherwise, statically allocated objects that need HAL may fail.
 __attribute__((constructor(101))) void premain() {
@@ -52,7 +43,6 @@ int main(void) {
   initVariant();
   
 #ifndef RTOS_ENABLED
-  NVIC_Configuration();
   /*SysTick_CLKSourceConfig(SysTick_CLKSource_HCLK_Div8);
   SysTick->LOAD = 1000;               // Set Reload Value
   SysTick->VAL = 0x00;                        // Set Current Value to 0

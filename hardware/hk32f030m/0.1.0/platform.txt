@@ -138,10 +138,10 @@ build.info.flags=-D{build.series} -DARDUINO={runtime.ide.version} -DARDUINO_{bui
 
 # Defaults config
 build.extclk=24000000
-build.xSerial=-DHAL_UART_MODULE_ENABLED
-build.xI2C=-DHAL_I2C_MODULE_ENABLED
-build.xSPI=-DHAL_SPI_MODULE_ENABLED
-build.RTOS=-DRTOS_ENABLED
+build.xSerial=
+build.xI2C=
+build.xSPI=
+build.RTOS=
 build.enable_usb=
 build.usb_speed=
 build.enable_virtio=
